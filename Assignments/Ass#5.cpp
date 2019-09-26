@@ -2,7 +2,7 @@
 #include <stdlib.h>
 using namespace std;
 int main(){
-int dice1, dice2, diceSum ,total, turnScore = 0 , turnNum = 1;
+int dice1, dice2, diceSum ,total = 0, turnScore = 0 , turnNum = 1;
 
     while(total <= 100){
     cout << "This is your turn #" << turnNum++ << endl;
@@ -23,7 +23,7 @@ int dice1, dice2, diceSum ,total, turnScore = 0 , turnNum = 1;
         }
 
     }
-    cout << "**You scored" << turnScore << "points for this turn";
+    cout << "** You scored " << turnScore << " points for this turn" << endl;
     cout << "*** Your total is now " << total << "\n\n";
     turnScore = 0;
 
