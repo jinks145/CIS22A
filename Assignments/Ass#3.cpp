@@ -1,13 +1,14 @@
 #include <iostream>
-#include <cstdio>
+#include <iomanip>
 #include <string>
 using namespace std;
 
 int main(){
 const string p_date = "01/02/19",s_ticker = "WMT";
 const int inv_amt = 10000, shareNum = 143;
+float b_price = 0.00f, s_price = 0.00f, gain = 0.00f;
 string s_date;
-double b_price, s_price, gain = 0.0;
+
 
     cout << "Enter the purchase price => ";
     cin >> b_price;
@@ -18,19 +19,19 @@ double b_price, s_price, gain = 0.0;
     cout << "Enter the sell price => ";
     cin >> s_price;
 
+    gain = s_price * shareNum + (inv_amt - b_price * shareNum) - inv_amt;
+
 
     cout << "\nStock Ticker: " << s_ticker << " \n" << endl;
 
     cout << "Purchase Date: " << p_date << endl;
-    printf("Purchase Price: $%0.2f\n", b_price);
+    cout << "Purchase Price: $" << fixed << setprecision(2) << b_price << endl;
     cout << "Number of Shares Purchased: " << shareNum << "\n\n";
 
     cout << "Sell Date: " << s_date << endl;
-    printf("Sell Price: $%0.2f\n", s_price);
-    printf("Value of Shares Sold: $%0.2f\n\n", s_price * shareNum);
+    cout << "Sell Price: $" << fixed << s_price << endl;
+    cout << "Value of Shares Sold: $" << fixed << setprecision(2) << s_price * shareNum << "\n\n";
 
-    gain = s_price * shareNum + (inv_amt - b_price * shareNum) - inv_amt;
-
-    printf("Gain: $%0.2f\n", gain);
-    cout << "Percent Gain: "<< gain / inv_amt << "%";
+    cout << "Gain: $" << gain << endl;
+    cout << "Percent Gain: "<< fixed << setprecision(1) << gain / inv_amt * 100 << "%";
 }

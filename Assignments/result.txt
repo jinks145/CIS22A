@@ -1,0 +1,2 @@
+Enter base and height => 2.3 4.5
+The area is 5.175

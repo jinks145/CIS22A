@@ -29,7 +29,7 @@ int main(){
 
 
 
-      sn << line <<"   " << to << percentage << " " + grade(percentage) + "\n";
+      sn << line <<"   " << to << " " << percentage << " " + grade(percentage) + "\n";
 
       output.append(sn.str());
 
@@ -162,9 +162,9 @@ string least(string data, int * maxscore){
     while(sl >> num){
         col++;
 
-        if(col == 17 && num < low){
+        if(col == 16 && num < low){
                 low = num;
-                sl >> id;
+                ss >> id;
         }
 
     }
@@ -187,9 +187,9 @@ string highest(string data, int * maxscore){
     while(sl >> num){
         col++;
 
-        if(col == 17 && num > max){
+        if(col == 16 && num > max){
                 max = num;
-                sl >> id;
+                ss >> id;
         }
 
     }
