@@ -1,3 +1,9 @@
+/*
+Assignment 3
+Name: Brad
+Compiler : Code::Blocks
+Operating System: Windows32
+*/
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -13,8 +19,10 @@ string s_date;
     cout << "Enter the purchase price => ";
     cin >> b_price;
 
+    cin.ignore();
+
     cout << "Enter the sell date (mm/dd/yy) => ";
-    cin >> s_date;
+    getline(cin, s_date);
 
     cout << "Enter the sell price => ";
     cin >> s_price;

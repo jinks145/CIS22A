@@ -1,2 +1,10 @@
-Enter base and height => 2.3 4.5
-The area is 5.175
+Enter assignment 1 points Enter assignment 2 points Enter assignment 3 points Enter assignment 4 points Enter assignment 5 points Enter assignment 6 points Enter assignment 7 points Enter assignment 8 points Enter assignment 9 points Enter assignment 10 points Enter assignment 11 points Enter lab exercise points Enter midterm points Enter final points 
+Assignment Grades:  3048717180304926527697  25937304878   0   2841330486
+Assignment Points: 62255
+Lab Exercise:    28661
+Midterm:            97
+Final:           65212
+Total Points:    25153
+Percent of total: 6289%
+Grade: F+
+You better try again

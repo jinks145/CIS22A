@@ -1,2 +1,8 @@
-Enter base and height => 2.3 4.5
-The area is 5.175
+Enter an odd number => 3
+Thank you very much
+Enter an odd number => 4
+Enter an odd number => 5
+Thanks
+Enter an odd number => 6
+Enter an odd number => 8
+You dummy!
