@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0052)http://voyager.deanza.edu/~bentley/cis22a/week3.html -->
+<html class="gr__voyager_deanza_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>CIS22 - Joe Bentley - Notes</title></head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(153, 0, 0);" alink="#000099" link="#000099" vlink="#990099" data-gr-c-s-loaded="true">
+<h2 style="font-family: Arial; color: rgb(255, 204, 204);">CIS22A
+- Notes for Week 3, 10/7-10/10</h2>
+<table style="text-align: left; font-family: Arial; width: 1043px; height: 127px;" border="2" cellpadding="8" cellspacing="4">
+<tbody>
+<tr>
+<td style="background-color: rgb(255, 204, 153);">
+<h3><span style="font-weight: bold;">Announcements
+and Reminders</span></h3>
+<ul>
+<li><a href="http://voyager.deanza.edu/~bentley/cis22a/ass2.html">Assignment 2</a>
+is due Monday, 10/7</li>
+<li><a href="http://www.conferzoom.org/">Tuesday's
+online time</a> (7:00-8:15 pm)</li>
+<li><a href="http://voyager.deanza.edu/~bentley/cis22a/ex3.html">Lab Exercise 3</a>
+is due Wednesday, 10/9</li>
+<li><a href="http://voyager.deanza.edu/~bentley/cis22a/ass3.html">Assignment 3</a>
+is due next Monday, 10/14</li>
+</ul>
+<sl></sl></td>
+</tr>
+</tbody>
+</table>
+<sl style="font-family: Arial;"></sl><sl style="font-family: Arial;"></sl>
+<hr style="width: 100%; height: 2px; font-family: Arial;">
+<table style="text-align: left; font-family: Arial; width: 1044px; height: 2188px;" border="2" cellpadding="8" cellspacing="4">
+<tbody>
+<tr>
+<td style="width: 772px; background-color: rgb(255, 255, 153);">
+<h3>Topics</h3>
+</td>
+<td style="width: 256px; background-color: rgb(153, 255, 255);">
+<h3>Terminology</h3>
+</td>
+</tr>
+<tr>
+<td style="width: 772px; background-color: rgb(255, 255, 153);">
+<h3>Chapter 3</h3>
+<h4>cin</h4>
+What does the extraction operator do?<br>
+Entering multiple values<br>
+white space<br>
+<br>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-3.cpp">Program
+3-3</a> - Page 88-89<br>
+<hr style="width: 100%; height: 2px;">
+<h4>Mathematical Expressions</h4>
+<span style="font-family: monospace;">z</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">9</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">z + 9</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">z * 9</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">sizeof(z)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">z + 5 * 3 / 7</span><br>
+<br>
+What if <span style="font-family: monospace;"><br>
+int z = 5;</span><br>
+What is the value of each expression?<br>
+<hr style="width: 100%; height: 2px;">
+<h4>Operator Precedence and Associativity</h4>
+parentheses<br>
+sizeof<br>
+- (unary negation)<br>
+* / %<br>
++ - (binary subtraction)<br>
+&lt;&lt; &nbsp;&gt;&gt;<br>
+<br>
+Evaluate these expressions<br>
+<span style="font-family: monospace;">5 + 2 * 6</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">12 / 4 - 3</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">3 + 4 * 6 - 2</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">12 * 18 % 7 - 1</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">15 - 2 * 6 + 8
+- 2</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">(5 + 2) * 6</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">12 / (4 - 3)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">3 + 4 * (6 - 2)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">12 * (18 % 7)
+- 1</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">(15 - 2) * (6
++ (8 - 2))</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">5 *
+sizeof(1000000)</span><br>
+<br>
+<span style="font-weight: bold;">associativity</span><br>
+<br>
+right to left or left to right<br>
+See <a href="http://voyager.deanza.edu/~bentley/cis22a/OperatorPrecedence.JPG">Appendix C Page 1289</a><br>
+<hr style="width: 100%; height: 2px;">
+<h4>The <a href="http://www.cplusplus.com/reference/cmath/pow/">pow()</a>
+function</h4>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-5.cpp">Program
+3-5</a> - Page 96<br>
+<hr style="width: 100%; height: 2px;">Calculate an
+average<br>
+<br>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-6.cpp">Program
+3-6</a> - Page 98<br>
+<hr style="width: 100%; height: 2px;">
+<h4>Type Conversions</h4>
+<span style="font-weight: bold; text-decoration: underline;">Level
+of Conversions</span><br>
+exact match<br>
+trivial conversion<br>
+promotions<br>
+standard conversions<br>
+floating point type to integer type<br>
+demotions<br>
+integer type to floating point type<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">When/How
+does a conversion occur</span><br>
+assignment<br>
+binary operation<br>
+cast<br>
+<h4>Overflow and Underflow</h4>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-7.cpp">Program
+3-7</a> - Page 102<br>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-8.cpp">Program
+3-8</a> - Page 103<br>
+<hr style="width: 100%; height: 2px;">
+<h4><a href="http://www.cplusplus.com/doc/tutorial/typecasting/">Cast</a></h4>
+C-style cast<br>
+"old" C++ style functional notation for a cast<br>
+<br>
+<span style="font-weight: bold;">static_cast</span><br>
+forces a&nbsp; type conversion<br>
+sometimes used to document a conversion (that will take place anyway)<br>
+useful for something like, average of three ints:<br>
+<br>
+int a = 2, b = 3, c = 5;<br>
+float avg = (a + b + c) / static_cast&lt;float&gt;(3);<br>
+<br>
+<span style="font-weight: bold;">Advice:&nbsp;
+Do not use C-style casts in this class (or even functional notation for
+a cast).&nbsp; Use static_cast where appropriate.&nbsp;</span><br>
+<br>
+<hr style="width: 100%; height: 2px;"><span style="font-weight: bold;">Multiple Assignment and the
+Assignment operator</span><br>
+<br>
+int x = 5, z = 99, q, maybe = 9;<br>
+int a = b = c = d = 9;&nbsp; // Why does this work?<br>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h4>Example:&nbsp; Calculate the harmonic mean of the
+first 5 prime numbers.</h4>
+The formula for a harmonic mean is&nbsp;
+<p class="MsoNormal"><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;<img style="width: 148px; height: 83px;" alt="" src="./CIS22 - Joe Bentley - week 3_files/harmonic_mean.jpg"></span><span style=""><o:p></o:p></span></p>
+<span style=""><o:p>The
+first 5 prime numbers are 2, 3, 5, 7, and 11.</o:p></span><span style=""><o:p><br>
+</o:p></span>
+<p class="MsoNormal"><span style=""><o:p><a href="http://voyager.deanza.edu/~bentley/cis22a/HarmonicMeanOf5Primes.html">Solution</a></o:p></span></p>
+<hr style="width: 100%; height: 2px;">
+<h4>Example:&nbsp; Calculate the roots of a quadratic
+equation</h4>
+A quadratic equation has the form&nbsp; <br>
+<br>
+&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;
+ax2 + bx + c = 0</span><br>
+<span style="font-size: 12pt; line-height: 115%;">&nbsp;
+&nbsp;<br>
+The
+roots are determined by&nbsp;the formula<br>
+<br>
+</span><span style="font-size: 12pt; line-height: 115%;"></span>
+<p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%;">&nbsp;
+&nbsp;<img style="width: 140px; height: 65px;" alt="" src="./CIS22 - Joe Bentley - week 3_files/quad_formula.jpg"></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%;">&nbsp;</span><a href="http://voyager.deanza.edu/~bentley/cis22a/QuadraticFormula.html">Solution</a></p>
+<p class="MsoNormal"></p>
+<hr style="width: 100%; height: 2px;">
+<h3>Some More Integer Operators</h3>
+Compound assignment<br>
+<span style="font-family: monospace;">+= &nbsp;
+-= &nbsp; *= &nbsp; /= &nbsp; %=</span><br>
+<br>
+Increment and decrement operators<br>
+++ prefix and postfix<br>
+-- prefix and postfix
+<h3>Formatted Output</h3>
+An output stream<span style="font-weight: bold;">
+manipulator</span> changes the behavior of an <span style="font-weight: bold;">output stream</span>.<br>
+The parameterized manipulators require the &lt;iomanip&gt;
+header file.
+<h4>The <span style="font-weight: bold;">setw</span>
+manipulator</h4>
+<div style="margin-left: 40px;"><span style="font-style: italic;">has a short memory</span><span style="font-style: italic;"></span><br>
+</div>
+<br>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-13.cpp">Program
+3-13</a> - Page 112<br>
+<h4>The <span style="font-weight: bold;">setprecision</span>
+manipulator</h4>
+<div style="margin-left: 40px;"><span style="font-style: italic;">has a long memory</span></div>
+<br>
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-15.cpp">Program
+3-15</a> - Page 114<br>
+<h4>The fixed<span style="font-weight: bold;"></span>
+and scientific
+manipulators</h4>
+<div style="margin-left: 40px;"><span style="font-style: italic;">have a long memory</span></div>
+<br>
+Example<br>
+<table style="text-align: left; font-family: monospace; width: 320px; height: 529px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="background-color: rgb(204, 204, 255);">cout
+&lt;&lt; setprecision(2);<br>
+float one = 123.4;<br>
+float two = 4567.895;<br>
+float three = 456;<br>
+float four = 2.89;<br>
+float five = .895;<br>
+cout &lt;&lt; one
+&lt;&lt; endl;<br>
+cout &lt;&lt; two
+&lt;&lt; endl;<br>
+cout &lt;&lt; three
+&lt;&lt; endl;<br>
+cout &lt;&lt; four
+&lt;&lt; endl;<br>
+cout &lt;&lt; five
+&lt;&lt; endl &lt;&lt; endl;<br>
+<br>
+cout &lt;&lt; <span style="font-weight: bold;">fixed</span>;<br>
+cout &lt;&lt; one
+&lt;&lt; endl;<br>
+cout &lt;&lt; two
+&lt;&lt; endl;<br>
+cout &lt;&lt; three
+&lt;&lt; endl;<br>
+cout &lt;&lt; four
+&lt;&lt; endl;<br>
+cout &lt;&lt; five
+&lt;&lt; endl;<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">OUTPUT</span><br>
+<br>
+1.2e+002<br>
+4.6e+003<br>
+4.6e+002<br>
+2.9<br>
+0.89<br>
+<br>
+123.40<br>
+4567.90<br>
+456.00<br>
+2.89<br>
+0.89</td>
+</tr>
+</tbody>
+</table>
+<h4>The <span style="font-weight: bold;">showpoint</span>
+manipulator</h4>
+<div style="margin-left: 40px;"><span style="font-style: italic;">has a long memory</span></div>
+<br>
+Example<br>
+<br>
+<table style="text-align: left; font-family: monospace; background-color: rgb(204, 204, 255); width: 320px; height: 527px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>cout &lt;&lt; setprecision(6);<br>
+float one = 123.4;<br>
+float two = 4567.895;<br>
+float three = 456;<br>
+float four = 2.89;<br>
+float five = .895;<br>
+cout &lt;&lt; one
+&lt;&lt; endl;<br>
+cout &lt;&lt; two
+&lt;&lt; endl;<br>
+cout &lt;&lt; three
+&lt;&lt; endl;<br>
+cout &lt;&lt; four
+&lt;&lt; endl;<br>
+cout &lt;&lt; five
+&lt;&lt; endl &lt;&lt; endl;<br>
+cout &lt;&lt; <span style="font-weight: bold;">showpoint</span>;<br>
+cout &lt;&lt; one
+&lt;&lt; endl;<br>
+cout &lt;&lt; two
+&lt;&lt; endl;<br>
+cout &lt;&lt; three
+&lt;&lt; endl;<br>
+cout &lt;&lt; four
+&lt;&lt; endl;<br>
+cout &lt;&lt; five
+&lt;&lt; endl;<br>
+<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">OUTPUT</span><br>
+<br>
+123.4<br>
+4567.9<br>
+456<br>
+2.89<br>
+0.895<br>
+<br>
+123.400<br>
+4567.90<br>
+456.000<br>
+2.89000<br>
+0.895000</td>
+</tr>
+</tbody>
+</table>
+<h4>The left and right manipulators</h4>
+<div style="margin-left: 40px;"><span style="font-style: italic;">have a long memory</span></div>
+<br>
+Example<br>
+<table style="text-align: left; font-family: monospace; background-color: rgb(204, 204, 255); width: 560px; height: 315px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>int x = 500;<br>
+float y = 2.54;<br>
+string z = "zebra";<br>
+<br>
+cout &lt;&lt; x &lt;&lt;
+y &lt;&lt; z &lt;&lt; endl;<br>
+<br>
+cout &lt;&lt; setw(8)
+&lt;&lt; x &lt;&lt; setw(8) &lt;&lt; y
+&lt;&lt; setw(8) &lt;&lt; z &lt;&lt; endl;<br>
+cout &lt;&lt; <span style="font-weight: bold;">left</span>;<br>
+cout &lt;&lt; setw(8)
+&lt;&lt; x &lt;&lt; setw(8) &lt;&lt; y
+&lt;&lt; setw(8) &lt;&lt; z &lt;&lt; endl;<br>
+<br>
+cout &lt;&lt; <span style="font-weight: bold;">right</span>;<br>
+cout &lt;&lt; setw(8)
+&lt;&lt; x &lt;&lt; setw(8) &lt;&lt; y
+&lt;&lt; setw(8) &lt;&lt; z &lt;&lt; endl;<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">OUTPUT</span><br>
+<br>
+5002.54zebra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+500&nbsp;&nbsp;&nbsp; 2.54&nbsp;&nbsp; zebra<br>
+500&nbsp;&nbsp;&nbsp;&nbsp;
+2.54&nbsp;&nbsp;&nbsp; zebra<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+500&nbsp;&nbsp;&nbsp; 2.54&nbsp;&nbsp; zebra<br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3>string input</h3>
+Example<br>
+<table style="text-align: left; width: 350px; height: 225px; background-color: rgb(204, 204, 255);" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><span style="font-family: monospace;">string
+name;</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">int age;</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">cout
+&lt;&lt; "Enter your name ";</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">cin
+&gt;&gt; name;</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">cout
+&lt;&lt; "Enter your age ";</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">cin
+&gt;&gt; age;</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">cout
+&lt;&lt; name &lt;&lt; age &lt;&lt; endl;</span><br>
+<br>
+<span style="font-family: monospace; font-weight: bold; text-decoration: underline;">OUTPUT</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">Enter
+your name <span style="font-weight: bold;">Joe Bentley</span></span><br style="font-family: monospace;">
+<span style="font-family: monospace;">Enter
+your age Joe-858993460</span></td>
+</tr>
+</tbody>
+</table>
+<br>
+What happened?<br>
+<h4><a href="http://www.cplusplus.com/reference/string/string/getline/">The
+getline (string) function</a></h4>
+reads from an input stream into a string<br>
+<br>
+<span style="text-decoration: underline;">Prototype</span><br>
+istream&amp; getline (istream&amp; is, string&amp; str);<br>
+<br>
+Example<br>
+<br>
+<table style="text-align: left; font-family: monospace; width: 354px; height: 272px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="background-color: rgb(204, 204, 255);">string
+name;<br>
+int age;<br>
+<br>
+cout &lt;&lt; "Enter your name ";<br>
+getline(cin,name);<br>
+<br>
+cout &lt;&lt; "Enter your age ";<br>
+cin &gt;&gt; age;<br>
+<br>
+cout &lt;&lt; name
+&lt;&lt; age &lt;&lt; endl;<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">OUTPUT</span><br>
+<br>
+Enter your name <span style="font-weight: bold;">Joe
+Bentley</span><br>
+Enter your age <span style="font-weight: bold;">37</span><br>
+Joe Bentley37<br>
+</td>
+</tr>
+</tbody>
+</table>
+<hr style="width: 100%; height: 2px;">
+<h3>char input</h3>
+<h4><a href="http://www.cplusplus.com/reference/istream/istream/get/">The
+overloaded get function</a></h4>
+reads char input from an input stream<br>
+<br>
+<span style="text-decoration: underline;">Prototypes</span><br>
+int istream::get();<br>
+istream&amp; istream::get (char&amp; c);<br>
+<br>
+Example<br>
+<br>
+<table style="text-align: left; width: 376px; height: 131px;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="background-color: rgb(204, 204, 255);"><span style="font-family: monospace;">char a, b;</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">int c;</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">cin.get(a);</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">b =
+cin.get();</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">c =
+cin.get();</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">cout
+&lt;&lt; a &lt;&lt; ' ' &lt;&lt; b
+&lt;&lt; ' ' &lt;&lt; c &lt;&lt; endl;</span><br>
+<br>
+<span style="font-weight: bold; text-decoration: underline; font-family: monospace;">INPUT</span><br style="font-family: monospace;">
+<span style="font-family: monospace; font-weight: bold;">ABC</span><br>
+<br style="font-family: monospace;">
+<span style="font-weight: bold; text-decoration: underline; font-family: monospace;">OUTPUT</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">A B 67</span></td>
+</tr>
+</tbody>
+</table>
+<h3><a style="font-weight: normal;" href="http://www.cplusplus.com/reference/istream/istream/ignore/">The
+ignore function</a><br style="font-weight: normal;">
+</h3>
+<h3><span style="font-weight: normal; text-decoration: underline;">Extract
+and discard characters</span><br style="font-weight: normal;">
+</h3>
+<span style="text-decoration: underline; font-weight: normal;">Prototype</span><br style="font-weight: normal;">
+<span style="font-weight: normal;">istream&amp;
+ignore (streamsize n = 1, int delim = EOF);</span><br style="font-weight: normal;">
+<br style="font-weight: normal;">
+<a style="font-weight: normal;" href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-23.cpp">Program
+3-23</a><span style="font-weight: normal;"> - Page
+125</span><br style="font-weight: normal;">
+<h3>Example<br>
+</h3>
+<div style="margin-left: 40px;"><span style="font-weight: normal; font-family: Courier New,Courier,monospace;">string
+name;</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">int
+age;</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">cout
+&lt;&lt; "Enter your name ";</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">cin
+&gt;&gt; name;</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">cin.ignore(80,'\n');</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">cout
+&lt;&lt; "Enter your age ";</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">cin
+&gt;&gt; age;</span><br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<br style="font-weight: normal; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: normal; font-family: Courier New,Courier,monospace;">cout
+&lt;&lt; name &lt;&lt; age &lt;&lt; endl;</span><br>
+</div>
+<h3><span style="font-family: monospace; font-weight: bold; text-decoration: underline;">OUTPUT</span><br style="font-family: monospace;">
+</h3>
+<div style="margin-left: 40px;"><span style="font-family: Courier New,Courier,monospace;">Enter
+your name </span><span style="font-weight: bold; font-family: Courier New,Courier,monospace;">Joe
+Bentley</span><br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">Enter
+your age </span><span style="font-weight: bold; font-family: Courier New,Courier,monospace;">37</span><br style="font-weight: bold; font-family: Courier New,Courier,monospace;">
+<span style="font-weight: bold; font-family: Courier New,Courier,monospace;">Joe37</span></div>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a href="http://www.cplusplus.com/reference/cmath/?kw=cmath">Math
+Library Functions</a></h3><ul><li>
+requires <span style="font-weight: bold;">#include
+&lt;cmath&gt;</span></li></ul><a href="http://voyager.deanza.edu/~bentley/cis22a/textbook_examples/Chapter%2003/Pr3-24.cpp">Program 3-24</a> - Page 128<br>
+
+<hr style="width: 100%; height: 2px;">
+<h3><a href="http://www.cplusplus.com/reference/cstdlib/rand/">The
+rand() function</a></h3><ul><li>
+returns a random int between 0 and RAND_MAX</li><li>requires
+<span style="font-weight: bold;">#include
+&lt;cstdlib&gt;</span></li></ul>
+
+
+<a href="http://voyager.deanza.edu/~bentley/textbook_examples/Chapter%2003/Pr3-25.cpp">Program
+3-25</a> - Page 129<br><br>
+<hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"></span>
+<hr style="width: 100%; height: 2px;"><span style="font-weight: bold;">Videos</span><br>
+<br>
+<div style="margin-left: 40px;"><a href="https://thenewboston.com/videos.php?cat=16&amp;video=17483">Basic
+Arithmetic</a><br>
+</div>
+<br>
+<a href="http://voyager.deanza.edu/~bentley/cis22a/readme3.html">Read me</a><br>
+</td>
+<td style="width: 256px; background-color: rgb(153, 255, 255);">cin<br>
+istream object<br>
+extraction operator<br>
+<span style="font-style: italic;">right shift</span><br>
+<br>
+operator precedence<br>
+operator associativity<br>
+<br>
+pow()<br>
+<br>
+conversion<br>
+exact match<br>
+trivial conversion<br>
+promotions<br>
+demotions<br>
+integer type<br>
+floating point type<br>
+<br>
+assignment<br>
+assignment operator<br>
+binary operator, binary operation<br>
+cast<br>
+static_cast (operator)<br><br>output
+stream manipulator<br>
+&lt;iomanip&gt;<br>
+setw<br>
+setprecision<br>
+fixed<br>
+scientific<br>
+showpoint<br>
+left<br>
+right<br>
+<br>
+input buffer<br><br><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">compound assignment operators</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;">+=</span><br style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;"><span style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;">-=</span><br style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;"><span style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;">*=</span><br style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;"><span style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;">/=</span><br style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;"><span style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-family: monospace;">%=</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-style: italic;"></span><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">increment operator</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">++</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">decrement operator</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">--</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">prefix</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">postfix<br><br></span><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">output stream manipulator</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">&lt;iomanip&gt;</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">setw</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">setprecision</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">fixed</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">scientific</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">showpoint</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">left</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">right</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">input buffer</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">getline</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-style: italic;">prototype</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">get</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-style: italic;">overloaded</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(153, 255, 255); display: inline ! important; float: none;">ignore</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-style: italic;">delimiter</span><br style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: medium; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-style: italic;">default argument</span><br>
+<br>math library<br>
+abs<br>
+cos<br>
+exp<br>
+fmod<br>
+log<br>
+log10<br>
+sin<br>
+sqrt<br>
+tan<br>
+&lt;cmath&gt;<br>
+<br>
+rand() <br>
+&lt;cstdlib&gt;<br>
+srand<br>
+seed a random number generator<br>
+time<br>
+&lt;ctime&gt;<br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</body></html>

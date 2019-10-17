@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1571207633 source:c:\cis22a\assignments\ass#4.cpp
+	<iostream>
+	<iomanip>
+	<string>
+
