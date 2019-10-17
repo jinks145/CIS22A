@@ -1,3 +1,10 @@
+/*
+Lab Exercise 4
+Name: Brad
+Compiler : Code::Blocks
+Operating System: Windows32
+*/
+
 #include <iostream>
 using namespace std;
 int main(){
@@ -17,7 +24,7 @@ int main(){
         if(num % 2 != 0){
         cout << "Thanks";
 
-    } else {
+    } else if(num % 2) {
         cout << "You dummy!";
      }
 
