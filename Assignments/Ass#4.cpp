@@ -58,7 +58,7 @@ int main(){
 
     total = a_total + lab + midterm + final;
 
-    percentage = static_cast<int>(100 * total / static_cast<double>(MAX);
+    percentage = static_cast<int>(100 * total / static_cast<double>(MAX));
 
     cout << endl << "Assignment Points: " << left << setw(2) << a_total;
 

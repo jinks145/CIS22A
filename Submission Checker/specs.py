@@ -1,24 +1,26 @@
+import sys
 print("specify the requirement file && code")
 
-files = input().split(',')
+files = input().split(' ')
 
 f = [open(files[0], 'r'), open(files[1], 'r')]
 
+occurence =  {}
+
+for spec in f[0].readlines() :
+    occurence.update(spec, 0)
+
 compliant = False
-for line in files[1] :
-    parts = line.split()
 
-    for str in parts : 
-        if str in files[0].readlines():
-            compliant = True
-        else :
-            compliant = False
+for line in f[1].readlines() :
+      for token in line.split():
+        if token in occurence.keys() :
+            occurence[token] += 1
 
-if(compliant) :
-    print("fits specs")
+if 0 in occurence.values() :
+    sys.exit()
 
-else :
-    print("non compliant")
+
 
  
 
