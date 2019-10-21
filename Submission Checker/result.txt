@@ -1,8 +1,0 @@
-Enter an odd number => 3
-Thank you very much
-Enter an odd number => 4
-Enter an odd number => 5
-Thanks
-Enter an odd number => 6
-Enter an odd number => 8
-You dummy!
