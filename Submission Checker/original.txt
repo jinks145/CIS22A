@@ -1,8 +1,10 @@
-Enter an odd number => 3
-Thank you very much
-Enter an odd number => 4
-Enter an odd number => 5
-Thanks
-Enter an odd number => 6
-Enter an odd number => 8
-You dummy!
+Enter assignment 1 points Enter assignment 2 points Enter assignment 3 points Enter assignment 4 points Enter assignment 5 points Enter assignment 6 points Enter assignment 7 points Enter assignment 8 points Enter assignment 9 points Enter assignment 10 points Enter assignment 11 points Enter lab exercise points Enter midterm points Enter final points
+Assignment Grades:  19  18  17  16  20  19  20  20  18  19  20
+Assignment Points: 190
+Lab Exercise:       46
+Midterm:            47
+Final:              90
+Total Points:      373
+Percent of total:   93%
+Grade: A
+Excellent work

@@ -1,10 +1,10 @@
 Enter assignment 1 points Enter assignment 2 points Enter assignment 3 points Enter assignment 4 points Enter assignment 5 points Enter assignment 6 points Enter assignment 7 points Enter assignment 8 points Enter assignment 9 points Enter assignment 10 points Enter assignment 11 points Enter lab exercise points Enter midterm points Enter final points 
-Assignment Grades:  20  20  20  20  20  20  20  20  20  20  20  
-Assignment Points: 200
-Lab Exercise:       50
-Midterm:            50
-Final:             100
-Total Points:      400
-Percent of total:  100%
-Grade: A+
+Assignment Grades:    19  18  17  16  20  19  20  20  18  19  20
+Assignment Points: 190
+Lab Exercise:       46
+Midterm:            47
+Final:              90
+Total Points:      373
+Percent of total:   93%
+Grade: A
 Excellent work

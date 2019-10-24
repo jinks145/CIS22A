@@ -15,8 +15,8 @@ string grader(int total);
 
 int main(){
     unsigned short  assignments[11], lab, midterm, final, total = 0 ,a_total = 0, percentage = 0, max = 0, min = 0;
-    const short MAX = 400;                        /* - Arrays : arrays are a continuous series of memory allocation. accessed and stored us
-                                                   - Since the syntax of c arrays and c++ are the same, we can borrow the syntax
+    const short MAX = 400;                      /* - Arrays : arrays are a continuous series of memory allocation. accessed and stored us
+    //maximum points available                     - Since the syntax of c arrays and c++ are the same, we can borrow the syntax
                                                     Ex) C++: char str[3];, C: char str[3];
                                                    */
 
@@ -49,16 +49,16 @@ int main(){
 
 
 
-    cout << endl << "Assignment Grades:  ";
+    cout << endl << "Assignment Grades:";
     for(int i = 0; i < 11; i++){
 
-        cout << left << setw(4) << assignments[i];
+        cout << right << setw(4) << assignments[i];
 
     }
 
     total = a_total + lab + midterm + final;
 
-    percentage = static_cast<int>(100 * total / static_cast<double>(MAX));
+    percentage = floor(100 * static_cast<float>(total) / MAX + 0.5);
 
     cout << endl << "Assignment Points: " << left << setw(2) << a_total;
 

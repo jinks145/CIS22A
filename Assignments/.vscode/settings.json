@@ -2,6 +2,22 @@
     "files.associations": {
         "array": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "iomanip": "cpp",
+        "random": "cpp",
+        "sstream": "cpp",
+        "cmath": "cpp",
+        "*.tcc": "cpp",
+        "algorithm": "cpp",
+        "fstream": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "streambuf": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp"
     }
 }

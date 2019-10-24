@@ -65,7 +65,7 @@ void Outpu(string data){
   ofstream outputlines;
   outputlines.open("ass7output.txt");
 
-  outputlines << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";
+    outputlines << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";
     outputlines << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- ß--\n";
     outputlines << data;
     outputlines.close();

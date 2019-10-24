@@ -16,13 +16,15 @@ if __name__ == '__main__':
     print("run code file :")
     filename = input()
 
-    os.system("g++ " + filename)
-    os.system(filename.strip('.cpp') + ".exe > results.txt")
+    os.system("cd C:/CIS22A/Assignments/")
+    os.system("g++ " + "C:/CIS22A/Assignments/" + filename)
+    os.system("cd C:/CIS22A/Assignments/")
+    os.system(" C:/CIS22A/Assignments/" + filename.strip('.cpp') + ".exe > results.txt")
 
     if not match():
-        print("output MisMatch")
+        print('\n' + "output MisMatch")
         sys.exit()
     else:
-        print("Output Match")
+        print('\n' + "Output Match")
 
     os.system("python " + "specs.py")
