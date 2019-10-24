@@ -5,8 +5,8 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "cpp.exe build active file",
-            "command": "C:\\Users\\Admin\\Desktop\\Geek Squad Data Backup\\MinGW\\bin\\cpp.exe",
+            "label": "g++.exe build active file",
+            "command": "C:\\Users\\Admin\\Desktop\\Geek Squad Data Backup\\MinGW\\bin\\g++.exe",
             "args": [
                 "-g",
                 "${file}",
@@ -19,7 +19,10 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": "build"
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

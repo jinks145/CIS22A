@@ -32,7 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="../Assignments/Ass#8.cpp" />
+		<Unit filename="../Assignments/Ass#9.cpp" />
+		<Unit filename="../Assignments/ass7data.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />

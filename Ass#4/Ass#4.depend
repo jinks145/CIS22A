@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1571890437 source:c:\cis22a\assignments\ass#9.cpp
+	<iostream>
+	<iomanip>
+	<fstream>
+	<sstream>
+	<cmath>
+	<string>
+	<cstdlib>
+

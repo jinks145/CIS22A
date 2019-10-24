@@ -31,30 +31,32 @@ int main(){
     load("ass7data.txt", data);
 
     for(int i = 0; i < 20; i++){
-        for(int j =0 ; i < 15; j++)
+        for(int j =0 ; j < 15; j++){
         cout << setw(4) << data[i][j];
-
+        }
         cout << endl;
     }
 
 }
 
 void load(string filename, int ** data){//loads data from file
-    ifstream loader(filename.c_str());
+    fstream fs("ass7data.txt", fstream::in);
     string lines[20];
-    
-    
+
+
 
     for(int i = 0; i < 20; i++){
-         getline(loader, lines[i]);
-           convert(lines[i], data[i] ,15);
+         for(int j = 0; j < 15; j++){
+            fs >> data[i][j];
+         }
+           
     }
 
-    
 
-    loader.close();
 
-    
+    fs.close();
+
+
 }
 
 void dump(string data, string destFile){//dumps data to the desired file
@@ -67,7 +69,7 @@ void dump(string data, string destFile){//dumps data to the desired file
 
 int total(int numbers[],  int size){// calculates total
     int sum = 0;
-    
+
     for(int i = 0 ; i < size; i++){
         sum += numbers[i];
     }
@@ -139,11 +141,11 @@ string grader(int percentage){// grader from Assignment #4
 
 
 string compute(string data[], int size){
-    
+
 }
 void convert(string  data, int * split, int size){
     stringstream ss(data);
-    
+
     for(int i = 0; i < size; i++){
         ss >> split[i];
     }
