@@ -1,0 +1,58 @@
+This is your turn #1
+* You rolled 5 and 1.  That's 6
+* You rolled 3 and 1.  That's 4
+* You rolled 1 and 2.  That's 3
+** You scored 13 points for this turn
+*** Your total is now 13
+
+This is your turn #2
+* You rolled 4 and 1.  That's 5
+* You rolled 4 and 1.  That's 5
+* You rolled 3 and 6.  That's 9
+** You scored 19 points for this turn
+*** Your total is now 32
+
+This is your turn #3
+* You rolled 2 and 2.  That's 4
+* You rolled 4 and 5.  That's 9
+* You rolled 3 and 3.  That's 6
+** You scored 19 points for this turn
+*** Your total is now 51
+
+This is your turn #4
+* You rolled 3 and 1.  That's 4
+* You rolled 2 and 5.  That's 0
+** You scored 4 points for this turn
+*** Your total is now 55
+
+This is your turn #5
+* You rolled 2 and 6.  That's 8
+* You rolled 1 and 4.  That's 5
+* You rolled 5 and 5.  That's 10
+** You scored 23 points for this turn
+*** Your total is now 78
+
+This is your turn #6
+* You rolled 1 and 6.  That's 0
+** You scored 0 points for this turn
+*** Your total is now 78
+
+This is your turn #7
+* You rolled 6 and 3.  That's 9
+* You rolled 1 and 5.  That's 6
+* You rolled 4 and 2.  That's 6
+** You scored 21 points for this turn
+*** Your total is now 99
+
+This is your turn #8
+* You rolled 2 and 5.  That's 0
+** You scored 0 points for this turn
+*** Your total is now 99
+
+This is your turn #9
+* You rolled 4 and 2.  That's 6
+* You rolled 1 and 1.  That's 2
+* You rolled 5 and 3.  That's 8
+** You scored 16 points for this turn
+*** Your total is now 115
+

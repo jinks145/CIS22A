@@ -13,13 +13,6 @@ def match():
 
 
 if __name__ == '__main__':
-    print("run code file :")
-    filename = input()
-
-    os.system("cd C:/CIS22A/Assignments/")
-    os.system("g++ " + "C:/CIS22A/Assignments/" + filename)
-    os.system("cd C:/CIS22A/Assignments/")
-    os.system(" C:/CIS22A/Assignments/" + filename.strip('.cpp') + ".exe > results.txt")
 
     if not match():
         print('\n' + "output MisMatch")
