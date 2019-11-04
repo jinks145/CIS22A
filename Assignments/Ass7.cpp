@@ -1,208 +1,208 @@
 #include <iostream>
-#include <sstream>
-#include <string>
+#include <cstdlib>
+#include <iomanip>
 #include <fstream>
+#include <string>
+#include <cmath>
 using namespace std;
 
-string read(void);
-void Outpu(string data);
-string grade(double percentage);
-int total(string data);
-string least(string data, int * max);
-string highest(string data, int * maxscore);
+/*
+Assignment#
+Compiler : CodeBlocks
+Operating System : Win32
+Name: Brad
+*/
+
+//implemented functions
+void load(ifstream &ifile , int * arr, int size);
+void dump(ofstream &ofile, int * arr, int * scores , int size, int size2);
+void report(ofstream &ofile, int * arr, int size);
+int percentage(int total);// finds percentage from the total calculated
+string grader(int percentage);// grade based on percentage
+int total(int * arr, int size);// calculates the sum of elements in an array
+int max(int * arr, int size);// finds the largest number in the array
+int min(int * arr, int size);// finds the smallest number in the array
+const int MAX = 400;// the highest score possible as a constant
+
+int main () {
+    
+    int ID, assignments[11] = {}, scores[6]= {}; // scores[0] == Ass, scores[1] = Mid, scores[2] = Fin, scores[3] = LEx, scores[4] = total, scores[5] = PCT;
+    
+    string grade;//actual grade
+    ifstream ifile("ass7data.txt");//data source
+    ofstream ofile("ass7out.txt");// stored in ass6out.txt
+    
+
+    
+    if(ifile.is_open() && ofile.is_open()){// file open check for both files
+        while(!ifile.eof()){//iterates 50 lines of code for 
+        ifile >> ID;
+
+        if(ifile.eof()) break;
 
 
-int main(){
-    string data = read(), line , output, id;
-    double percentage = 0.00;
-    stringstream ss(data);
-    double totalP = 0.00;
-    int stdNum = 0, maxScore =0, totalscores = 0;
 
-  while(getline(ss,line,'\n')) {
-      stringstream sn;
-      int to = total(line);
-      double percentage = 100 * static_cast<double>(to) / 400;
-      totalscores += to;
-      totalP += percentage;
+        scores[0] = 0;
 
 
+        for(int j = 0; j < 11; j++){
+        ifile >> assignments[j];
+        ofile  << right << setw(3) << assignments[j];
+        }
+
+        scores[0] = total(assignments, 11) - min(assignments, 11);
+
+        for(int j = 1 ; j <= 3; j++){
+        ifile >> scores[j];
+        }
+
+        scores[4] = total(scores, 4);
+        scores[5] = percentage(scores[4]);
+        grade = grader(scores[5]);
+
+        ofile << "  " << setw(3) << scores[0] << "  " << setw(3) << scores[1] <<
+         "  " << setw(3) << scores[2] << " " << setw(3) << scores[3] << " " <<
+             setw(5) << scores[4] << "  " << setw(3) << scores[5];
 
 
-      sn << line <<"   " << to << " " << percentage << " " + grade(percentage) + "\n";
-
-      output.append(sn.str());
-
-      stdNum++;
-  }
 
 
-    Outpu(output);
 
-    cout << "The average total points = "<<  static_cast<double>(totalscores) / stdNum << endl;
+        ofile << " " << grade << endl;
 
-    cout << "The average percent total = "<< totalP / stdNum << "%" << endl;
 
-    cout << highest(output, &maxScore)<< endl;
-    cout << least(output, &maxScore) << endl;
+
+
+        }
+
+        ifile.close();
+        ofile.close();
+
+        
+   
+
+        
+    }
+    else{//file open failure exits the program
+        cout <<  "file open failure!";
+        exit(1);
+    }
+
 }
 
-string read(void){
-    ifstream file("ass7data.txt");
-    string line, data;
 
-    stringstream buffer;
 
-    buffer << file.rdbuf();
+int total(int * arr, int size){
+    int total = 0;
 
-    data = buffer.str();
+    for(int i = 0; i < size; i++){
+        total += arr[i];
+    }
 
-    file.close();
-
-    return data;
+    return total;
 }
-void Outpu(string data){
-  ofstream outputlines;
-  outputlines.open("ass7output.txt");
 
-    outputlines << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";
-    outputlines << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- ß--\n";
-    outputlines << data;
-    outputlines.close();
+void load(ifstream &ifile , int * arr, int size){
+    if(ifile.is_open()){
+        for(int i = 0; i < size; i++){
+            ifile >> arr[i];
+
+            if(ifile.eof()){
+                return;
+            }
+
+        }
+    }
+    else{
+        cout << "file open failure" << endl;
+        exit(1);
+    }
 }
-string grade(double percentage){
-  string grade;
 
-  if(90 <= percentage & percentage <= 100){
+void dump(ofstream &ofile, int * arr, int * scores , int size, int size2){
+    
+    
+    if(ofile.is_open()){
+        ofile << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr" << endl;
+        ofile << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --" << endl;
+
+        ofile << setfill('0') << setw(8)  << arr[0] << setfill(' ') << " ";// pads 8 digit id with leading 0s && resets them when finished
+
+
+    }
+    else{
+        cout << "file open failure" << endl;
+        exit(1);
+    }
+
+}
+void report(ofstream &ofile, string * data){
+    
+    
+            
+            ofile <<  "Number of students = " << data[0] << endl;
+            ofile <<  "The average total points = " << data[1] << endl;
+            ofile <<  "The average percent total = " << data[2] << endl;
+            ofile <<  "Highest Grade: " << data[3] << endl;
+            ofile << "Lowest Grade: " << data[4] << endl;
+}
+
+
+int percentage(int total){
+    return floor(100 * static_cast<float>(total) / MAX + 0.5);
+}
+
+
+string grader(int percentage){
+    string grade = "";
+
+    switch(percentage /10){
+        case 10 :
             grade = "A";
+            break;
+        case 9:
+            grade = "A";
+            break;
 
-            if(98 <= percentage){
-                grade += "+";
-            }
-
-            else if(percentage <= 91){
-                grade += "-";
-            }
-
-        }
-
-        else if(80 <= percentage & percentage <= 89){
-
+        case 8 :
             grade = "B";
+            break;
 
-            if(88 <= percentage){
-                grade += "+";
-            }
-
-            else if(percentage <= 81){
-                grade += "-";
-            }
-
-        }
-
-        else if(70 <= percentage & percentage <= 79){
-
+        case 7 :
             grade = "C";
+            break;
 
-            if(78 <= percentage){
-                grade += "+";
-            }
-
-            else if(percentage <= 71){
-                grade += "-";
-            }
-
-        }
-        else if(60 <= percentage & percentage <= 69){
+        case 6 :
             grade = "D";
+            break;
 
-            if(68 <= percentage){
-                grade += "+";
-            }
-
-            else if(percentage <= 61){
-                grade += "-";
-            }
-
-        }
-
-        else if(percentage < 60){
+        default :
             grade = "F";
+    }
 
+
+    if(percentage / 10 > 5 && percentage  != 100){
+        if(percentage % 10 < 2 ){
+            grade += "-";
         }
-
-
-  return grade;
-}
-int total(string data){
-  int num, col = 0, total = 0;
-  stringstream datastream(data);
-
-
-  while(datastream >> num){
-      if(col > 1)
-        total += num;
-
-       col++;
-  }
-
-  return total;
-}
-
-
-string least(string data, int * maxscore){
-  int low = *maxscore, col =0;
-  stringstream ss(data) ,result;
-  string line, id;
-
-  while(getline(ss,line,'\n')) {
-    stringstream sl(line);
-    int num;
-
-    while(sl >> num){
-        col++;
-
-        if(col == 16 && num < low){
-                low = num;
-                ss >> id;
+        else if(percentage % 10 > 7){
+            grade += "+";
         }
 
     }
-    col = 0;
-  }
-  result << "ID="<< id << "  Points=" << low << "  Percent=" << 100 * static_cast<double>(low) / 400;
+    else if(percentage == 100){
+        grade += "+";
+    }
 
-  return result.str();
+
+    return grade;
 }
 
-string highest(string data, int * maxscore){
-  int max = 0, col = 0;
-  stringstream ss(data) ,result;
-  string line, id;
-
-  while(getline(ss,line,'\n')) {
-    stringstream sl(line);
-    int num;
-
-    while(sl >> num){
-        col++;
-
-        if(col == 16 && num > max){
-                max = num;
-                ss >> id;
-        }
-
+int min(int * arr, int size){
+    int  min = 20;
+    for(int j = 0; j < size; j++){
+        (arr[j] < min) ? min = arr[j] : min = min;
     }
-    col = 0;
-  }
-  result << "ID="<< id << "  Points=" << max << "  Percent=" << 100 * static_cast<double>(max) / 400;
 
-  *maxscore = max;//to be replaced with something better
-
-  return result.str();
-
-
-
-
-
+    return min;
 }

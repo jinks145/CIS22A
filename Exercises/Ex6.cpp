@@ -6,8 +6,8 @@
 using namespace std;
 
 /*
-Name : Jooho Jeong
-Exercise : Lab Exercise #1
+Name : Brad
+Exercise : Lab Exercise #6
 Compiler used : Code::Blocks on a PC
 Completed at : ATC Lab
 */
@@ -15,14 +15,13 @@ Completed at : ATC Lab
 int main () {
   ofstream randNumList;
   randNumList.open("ex6output.txt");
-  string line = "";
   char ch = ' ';
 
   srand(time(0));
 
 
   for(int i = 0; i < 25; i++){
-    ch = static_cast<char>(rand() % 100 + 50);
+    ch = static_cast<char>(rand() % 51 + 50);
     randNumList << ch << endl;
   }
 
@@ -31,9 +30,9 @@ int main () {
 
   ifstream filelines("ex6output.txt");
 
-  while(getline(filelines,line)){
+  while(filelines.get(ch)){
 
-    cout << line << endl;
+    cout << ch ;
   }
 
 }

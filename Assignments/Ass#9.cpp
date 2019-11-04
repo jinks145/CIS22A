@@ -19,7 +19,7 @@ int percentage(int total);
 string grader(string data, int percentage);
 string compute(int * data, int size);
 void dump(ofstream &dumper, int * data);
-int min(int * numbers, int start, int end);
+int min(int numbers[], int start, int end);
 int pm(int percentage);
 
 
@@ -172,7 +172,7 @@ string compute(int * data, int size){
     data[19] = pm(data[17]);
 }
 
-int min(int * numbers, int start, int end){
+int min(int numbers[], int start, int end){
     int  min = 20;
     for(int j = start; j <= end; j++){
         (numbers[j] < min) ? min = numbers[j] : min = min;
