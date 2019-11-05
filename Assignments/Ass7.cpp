@@ -16,7 +16,7 @@ Name: Brad
 //implemented functions
 void load(ifstream &ifile , int * arr, int size);
 void dump(ofstream &ofile, int * arr, int * scores , int size, int size2);
-void report(ofstream &ofile, int * arr, int size);
+void report(ofstream &ofile, float * arr);
 int percentage(int total);// finds percentage from the total calculated
 string grader(int percentage);// grade based on percentage
 int total(int * arr, int size);// calculates the sum of elements in an array
@@ -26,66 +26,26 @@ const int MAX = 400;// the highest score possible as a constant
 
 int main () {
     
-    int ID, assignments[11] = {}, scores[6]= {}; // scores[0] == Ass, scores[1] = Mid, scores[2] = Fin, scores[3] = LEx, scores[4] = total, scores[5] = PCT;
-    
+    int ID, assignments[11] = {}, scores[6]= {};
+    float stats[5] ={};
+     // scores[0] == Ass, scores[1] = Mid, scores[2] = Fin, scores[3] = LEx, scores[4] = total, scores[5] = PCT;
     string grade;//actual grade
     ifstream ifile("ass7data.txt");//data source
     ofstream ofile("ass7out.txt");// stored in ass6out.txt
     
 
     
-    if(ifile.is_open() && ofile.is_open()){// file open check for both files
-        while(!ifile.eof()){//iterates 50 lines of code for 
-        ifile >> ID;
-
-        if(ifile.eof()) break;
-
-
-
-        scores[0] = 0;
-
-
-        for(int j = 0; j < 11; j++){
-        ifile >> assignments[j];
-        ofile  << right << setw(3) << assignments[j];
-        }
-
-        scores[0] = total(assignments, 11) - min(assignments, 11);
-
-        for(int j = 1 ; j <= 3; j++){
-        ifile >> scores[j];
-        }
-
-        scores[4] = total(scores, 4);
-        scores[5] = percentage(scores[4]);
-        grade = grader(scores[5]);
-
-        ofile << "  " << setw(3) << scores[0] << "  " << setw(3) << scores[1] <<
-         "  " << setw(3) << scores[2] << " " << setw(3) << scores[3] << " " <<
-             setw(5) << scores[4] << "  " << setw(3) << scores[5];
+   
+    if(ifile.bad() || ofile.bad()){//file open failure exits the program
+        cerr <<  "file open failure!";
+        exit(1);
+    }else{
 
 
 
-
-
-        ofile << " " << grade << endl;
-
-
-
-
-        }
-
+        
         ifile.close();
         ofile.close();
-
-        
-   
-
-        
-    }
-    else{//file open failure exits the program
-        cout <<  "file open failure!";
-        exit(1);
     }
 
 }
@@ -136,15 +96,21 @@ void dump(ofstream &ofile, int * arr, int * scores , int size, int size2){
     }
 
 }
-void report(ofstream &ofile, string * data){
+void report(ofstream &ofile, float * arr){
     
-    
+    if(ofile.is_open()){
+
             
-            ofile <<  "Number of students = " << data[0] << endl;
-            ofile <<  "The average total points = " << data[1] << endl;
-            ofile <<  "The average percent total = " << data[2] << endl;
-            ofile <<  "Highest Grade: " << data[3] << endl;
-            ofile << "Lowest Grade: " << data[4] << endl;
+            ofile <<  "Number of students = " << arr[0] << endl;
+            ofile <<  "The average total points = " << arr[1] << endl;
+            ofile <<  "The average percent total = " << arr[2] << endl;
+            ofile <<  "Highest Grade: " << arr[3] << endl;
+            ofile << "Lowest Grade: " << arr[4] << endl;
+    }
+    else{
+        cout << "file open failure" << endl;
+        exit(1);
+    }
 }
 
 

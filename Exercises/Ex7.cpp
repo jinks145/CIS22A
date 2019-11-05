@@ -10,20 +10,21 @@ Operating System : Win32
 Name: Brad
 */
 
-int diceRoll();
+int diceRollSum();// function to calculate the sum of two random numbers
 
 int main(){
   srand(time(0));
     
   for(int i = 0; i< 5; i++){
-      cout << diceRoll() << endl;
+      cout << diceRollSum() << endl;//five function calls 
   }
     
 
 }
 
-int diceRoll(){
+int diceRollSum(){
 int dice1, dice2;
+
     dice1 = rand()%6 + 1;
     dice2 = rand()%6 + 1;
 
