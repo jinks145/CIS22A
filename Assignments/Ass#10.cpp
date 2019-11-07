@@ -32,25 +32,49 @@ void dump(ofstream &ofile, data current , results * result, int r_size, string t
 float maxClose(double close[], int size);
 float avgCLose(double close[], int size);
 int main(){
-    ifstream ifile("cat.csv");
-    ofstream ofile("report.txt");
+    while(true){
+    string filename;
     data data[1001];
     results result[8];
     const int marketDays[8] = { 5, 10, 20, 50, 100, 200, 500, 1000};
 
-    for(int i = 1000; i > -1; i--){
-        load(ifile, &data[i]);
-        
+
+    cout << "~~~Dow Jones Analyzer~~~~\nDJIA Record Please: ";
+    getline(cin, filename);
+
+    ifstream ifile(filename.c_str());
+    ofstream ofile("report.txt");
+    
+
+
+    if(filename.length == 0){
+        cout << "Thank You for using Dow Jones Analyzer";
+        exit(1);
     }
 
-    for(int i = 0; i < 8; i++){
-    analysis(data, &result[i], marketDays[i]);
+    else if (!ifile){
+        cout << "Error 404: Cannot open File";
+        exit(1);
     }
+    
+    else{
+        for(int i = 1000; i > -1; i--){
+        load(ifile, &data[i]);
+        }
+
+        for(int i = 0; i < 8; i++){
+        analysis(data, &result[i], marketDays[i]);
+        }
 
     
         dump(ofile, data[0], result, 8, "cat");
+    }
+
     
 
+    
+    
+    }
 }
 
 
@@ -61,7 +85,7 @@ void load(ifstream &ifile , data * d){
     if(ifile.is_open()){
         getline(ifile, line);
 
-        if(line == "Date,Open,High,Low,Close,Adj Close,Volume") return;// omits the line
+        if(line == "Date,Open,High,Low,Close,Adj Close,Volume" || ifile.eof()) return;// omits the line
 
         stringstream ss(line);
 
@@ -131,7 +155,7 @@ void analysis(data d[], results * result, int marketDays){
     result -> startDate = d[marketDays - 1].date;
     result -> gain = current.prices[3] - d[marketDays - 1].prices[3];
 
-    result -> pct_gain = result -> gain / d[marketDays - 1].prices[3];
+    result -> pct_gain = result -> gain / d[marketDays - 1].prices[3] * 100.00f;
 
     result -> m_close = maxClose(close, marketDays);
     result -> Avg_close = avgClose(close, marketDays);
@@ -149,11 +173,13 @@ void dump(ofstream &ofile, data current , results * result, int r_size, string t
         for(int i = 0; i < r_size; i++){
             ofile << setw(11) << result[i].marketDays << "  ";
             ofile << result[i].startDate << setw(4) << "  ";
-            ofile << setw(7) << result[i].c_price << setw(4) << "  ";
+            ofile << setw(6) <<showpoint << fixed  << setprecision(2) << result[i].c_price << setw(4) << "  ";
             ofile << setw(5) << result[i].u_dates << setw(3) << "  ";
-            ofile << setw(6) << result[i].d_dates << setw(4) << "  ";
-            ofile << setw(5) << showpoint << fixed  << setprecision(2) << result[i].gain << "  ";
-            ofile << setw(7) << result[i].pct_gain << "%  ";
+            ofile << setw(6) << result[i].d_dates << setw(7);
+            
+            ofile << setw(12) << showpoint << fixed  << setprecision(2) << result[i].gain;
+            ofile << setw(9) << result[i].pct_gain << "%  ";
+            
             ofile << setw(9) << result[i].m_close << "  ";
             ofile << setw(9) << result[i].Avg_close << endl;
         }
