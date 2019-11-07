@@ -44,7 +44,7 @@ int main(){
     }
 
     for(int i = 0; i < 8; i++){
-    analysis(data, result, marketDays[i]);
+    analysis(data, &result[i], marketDays[i]);
     }
 
     
