@@ -12,6 +12,7 @@ Name: Brad
 #include <iomanip>
 #include <string>
 #include <cstdlib>
+#include <locale> 
 using namespace std;
 
 struct data{
@@ -28,12 +29,13 @@ struct results{
 
 void load(ifstream &ifile, data * d);
 void analysis(data data[], results * result, int d_size);
+string toUpperStr(string str);
 void dump(ofstream &ofile, data current , results * result, int r_size, string ticker);
 float maxClose(double close[], int size);
 float avgCLose(double close[], int size);
 int main(){
-    while(true){
-    string filename;
+    
+    string filename , ticker, r_file;
     data data[1001];
     results result[8];
     const int marketDays[8] = { 5, 10, 20, 50, 100, 200, 500, 1000};
@@ -43,11 +45,13 @@ int main(){
     getline(cin, filename);
 
     ifstream ifile(filename.c_str());
-    ofstream ofile("report.txt");
     
-
-
-    if(filename.length == 0){
+    
+    int lastdot = filename.find_last_of(".");
+    ticker = filename.substr(0, lastdot);
+    r_file = ticker + ".txt";
+    ofstream ofile(r_file.c_str());
+    if(filename.length() == 0){
         cout << "Thank You for using Dow Jones Analyzer";
         exit(1);
     }
@@ -66,17 +70,28 @@ int main(){
         analysis(data, &result[i], marketDays[i]);
         }
 
-    
-        dump(ofile, data[0], result, 8, "cat");
-    }
+        
 
-    
+        dump(ofile, data[0], result, 8, toUpperStr(ticker));
 
-    
-    
+        
     }
+    ifile.close();
+    ofile.close();
+
+    cout << "finished analyzing";
+    
+    
 }
 
+string toUpperStr(string str){
+    string upped = " ";
+    for(int i = 0; i < str.length(); i++){
+        upped += toupper(str.at(i));
+    }
+
+    return upped;
+}
 
 void load(ifstream &ifile , data * d){
     
@@ -165,8 +180,8 @@ void dump(ofstream &ofile, data current , results * result, int r_size, string t
     if(ofile.is_open()){
     
     ofile << "Stock:  " << ticker << endl;
-    ofile << "Current Date: " << current.date << endl;
-    ofile << "Current Close:  " << current.prices[3] << endl;
+    ofile << "Current Date: "  << current.date << endl;
+    ofile << "Current Close:  " << showpoint << fixed  << setprecision(2)<< current.prices[3] << endl;
     ofile << "Market Days  Start Date  Close Price  Up Days  Down Days   Gain  Pct Gain  Max Close  Avg Close" << endl;
     ofile << "-----------  ----------  -----------  -------  ---------   ----  --------  ---------  ---------" << endl;
 
