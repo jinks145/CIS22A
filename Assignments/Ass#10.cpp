@@ -28,23 +28,28 @@ struct results{
 
 void load(ifstream &ifile, data * d);
 void analysis(data data[], results * result, int d_size);
+void dump(ofstream &ofile, data current , results * result, int r_size, string ticker);
 float maxClose(double close[], int size);
 float avgCLose(double close[], int size);
 int main(){
     ifstream ifile("cat.csv");
-    ofstream ofile("report.csv");
+    ofstream ofile("report.txt");
     data data[1001];
     results result[8];
-    
+    const int marketDays[8] = { 5, 10, 20, 50, 100, 200, 500, 1000};
 
     for(int i = 1000; i > -1; i--){
         load(ifile, &data[i]);
+        
     }
 
-    analysis(data, &result[0], 5);
+    for(int i = 0; i < 8; i++){
+    analysis(data, result, marketDays[i]);
+    }
 
-    cout << result[0].marketDays << "  " << result[0].startDate << "  " << result[0].c_price << "  " << result[0].u_dates
-    << "  " << result[0].d_dates << "  " << result[0].gain << "  " << result[0].pct_gain << "  " << result[0].m_close << "  " << result[0].Avg_close; 
+    
+        dump(ofile, data[0], result, 8, "cat");
+    
 
 }
 
@@ -130,4 +135,32 @@ void analysis(data d[], results * result, int marketDays){
 
     result -> m_close = maxClose(close, marketDays);
     result -> Avg_close = avgClose(close, marketDays);
+}
+
+void dump(ofstream &ofile, data current , results * result, int r_size, string ticker){
+    if(ofile.is_open()){
+    
+    ofile << "Stock:  " << ticker << endl;
+    ofile << "Current Date: " << current.date << endl;
+    ofile << "Current Close:  " << current.prices[3] << endl;
+    ofile << "Market Days  Start Date  Close Price  Up Days  Down Days   Gain  Pct Gain  Max Close  Avg Close" << endl;
+    ofile << "-----------  ----------  -----------  -------  ---------   ----  --------  ---------  ---------" << endl;
+
+        for(int i = 0; i < r_size; i++){
+            ofile << setw(11) << result[i].marketDays << "  ";
+            ofile << result[i].startDate << setw(4) << "  ";
+            ofile << setw(7) << result[i].c_price << setw(4) << "  ";
+            ofile << setw(5) << result[i].u_dates << setw(3) << "  ";
+            ofile << setw(6) << result[i].d_dates << setw(4) << "  ";
+            ofile << setw(5) << fixed << setprecision(2) << result[i].gain << "  ";
+            ofile << setw(7) << result[i].pct_gain << "%  ";
+            ofile << setw(9) << result[i].m_close << "  ";
+            ofile << setw(9) << result[i].Avg_close << endl;
+        }
+
+    }
+    else{
+        cerr << "file open failure";
+        exit(1);
+    }
 }
