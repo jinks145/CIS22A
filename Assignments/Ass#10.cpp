@@ -152,7 +152,7 @@ void dump(ofstream &ofile, data current , results * result, int r_size, string t
             ofile << setw(7) << result[i].c_price << setw(4) << "  ";
             ofile << setw(5) << result[i].u_dates << setw(3) << "  ";
             ofile << setw(6) << result[i].d_dates << setw(4) << "  ";
-            ofile << setw(5) << fixed << setprecision(2) << result[i].gain << "  ";
+            ofile << setw(5) << showpoint << fixed  << setprecision(2) << result[i].gain << "  ";
             ofile << setw(7) << result[i].pct_gain << "%  ";
             ofile << setw(9) << result[i].m_close << "  ";
             ofile << setw(9) << result[i].Avg_close << endl;
