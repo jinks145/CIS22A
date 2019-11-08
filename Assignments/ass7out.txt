@@ -59,4 +59,4 @@ Number of students = 53
 The average total points = 299.1
 The average percent total = 74.9%
 Highest Grade:  Id=27029673  Points=360  Percent=90.0%
-Lowest Grade:  Id=42378406  Points=230  Percent=58.0%
+Lowest Grade:  Id=42378406  Points=230  Percent=57.5%

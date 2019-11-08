@@ -34,14 +34,17 @@ void dump(ofstream &ofile, data current , results * result, int r_size, string t
 float maxClose(double close[], int size);
 float avgCLose(double close[], int size);
 int main(){
-    
+
+    cout << "~~~Dow Jones Analyzer~~~~" << endl; 
+
+    while(true){
     string filename , ticker, r_file;
     data data[1001];
     results result[8];
     const int marketDays[8] = { 5, 10, 20, 50, 100, 200, 500, 1000};
 
 
-    cout << "~~~Dow Jones Analyzer~~~~\nDJIA Record Please: ";
+    cout << "DJIA Record Please: ";    
     getline(cin, filename);
 
     ifstream ifile(filename.c_str());
@@ -49,7 +52,7 @@ int main(){
     
     int lastdot = filename.find_last_of(".");
     ticker = filename.substr(0, lastdot);
-    r_file = ticker + ".txt";
+    r_file = ticker + " result.txt";
     ofstream ofile(r_file.c_str());
     if(filename.length() == 0){
         cout << "Thank You for using Dow Jones Analyzer";
@@ -79,9 +82,9 @@ int main(){
     ifile.close();
     ofile.close();
 
-    cout << "finished analyzing";
+    cout << "finished analyzing" << endl;
     
-    
+    }
 }
 
 string toUpperStr(string str){
@@ -181,7 +184,7 @@ void dump(ofstream &ofile, data current , results * result, int r_size, string t
     
     ofile << "Stock:  " << ticker << endl;
     ofile << "Current Date: "  << current.date << endl;
-    ofile << "Current Close:  " << showpoint << fixed  << setprecision(2)<< current.prices[3] << endl;
+    ofile << "Current Close: $" << showpoint << fixed  << setprecision(2)<< current.prices[3] << endl;
     ofile << "Market Days  Start Date  Close Price  Up Days  Down Days   Gain  Pct Gain  Max Close  Avg Close" << endl;
     ofile << "-----------  ----------  -----------  -------  ---------   ----  --------  ---------  ---------" << endl;
 
