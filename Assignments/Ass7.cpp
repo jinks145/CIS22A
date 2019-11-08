@@ -3,7 +3,7 @@ Assignment#7
 Compiler : CodeBlocks
 Operating System : Win32
 Name: Brad
-Note: Please note that load, dump and report functions perform file open checks.
+Note: Load, dump and report functions perform file open checks.
 */
 
 #include <iostream>
@@ -40,14 +40,15 @@ const int MAX = 400;// the highest score possible as a constant
 
 int main () {
     
-    
+    student students[53];
+    stats report;
     ifstream ifile("ass7data.txt");//data source
     ofstream ofile("ass7out.txt");// stored in ass6out.txt
     
 
-    
+    load(ifile, students , 53);
    
-    
+    dump(ofile, students, 53);
 
 }
 
