@@ -3,7 +3,7 @@ Assignment#7
 Compiler : CodeBlocks
 Operating System : Win32
 Name: Brad
-Note: Load, dump and report functions perform file open checks.
+Note: Load, dump and report functions perform file open checks && for end of file.
 */
 
 #include <iostream>
@@ -19,13 +19,13 @@ struct student{
     float pct;
     string grade;
     int id;
-};
+};//for storing student information
 
 struct stats{
     student highest, lowest;
     float avg, avg_pct;
     int students;
-};
+};//for storing final report stats
 
 //implemented functions
 void load(ifstream &ifile, student * students, int size);// loads file
@@ -33,21 +33,21 @@ void dump(ofstream &ofile, student students[], int size); //dumps data that was 
 void reported(ofstream &ofile, stats report);// writes them to the file
 float percentage(int total);// finds percentage from the total calculated
 string grader(int percentage);// grade based on percentage
-int total(int * arr, int start, int end);// calculates the sum of elements in an array
-void analysis(student * students, stats * report, int size);// calculates stats
+int total(int * arr, int start, int end);// calculates the sum of elements from star to end inclusively in an array
+void analysis(student * students, stats &report, int size);// calculates stats
 int min(int * arr, int size);// finds the smallest number in the array
 const int MAX = 400;// the highest score possible as a constant
 
 int main () {
     
-    student students[53];
-    stats report = {{}, {}, 0.0, 0.0, 0};
+    student students[53];// 53 students
+    stats report = {{}, {{}, {}, 0, MAX, 100, "" , 0}, 0.0, 0.0, 0};// report initialization
     ifstream ifile("ass7data.txt");//data source
     ofstream ofile("ass7out.txt");// stored in ass7out.txt
     
 
     load(ifile, students , 53);
-    analysis(students, &report, 53);
+    analysis(students, report, 53);// where
     dump(ofile, students, 53);
     reported(ofile, report);
 }
@@ -70,12 +70,14 @@ void load(ifstream &ifile, student * students, int size){
 
         for(int i = 0; i < size; i++){
             ifile >> students[i].id;
+
             if(ifile.eof()) break;
+
             for(int j = 0; j < sizeof(students[0].a_points)/ sizeof(int); j++){
                 ifile >> students[i].a_points[j];
             }
 
-            for(int j = 0; sizeof(students[0].scores)/ sizeof(int); j++){
+            for(int j = 0; j < sizeof(students[0].scores)/ sizeof(int); j++){
                 ifile >> students[i].scores[j];
             }
             
@@ -91,25 +93,25 @@ void load(ifstream &ifile, student * students, int size){
 
 }
 
-void analysis(student * students, stats * report, int size){
+void analysis(student * students, stats  &report, int size){
     for(int i = 0; i < size; i ++){
         students[i].a_total = total(students[i].a_points, 0, 10) - min(students[i].a_points, 11);
         students[i].total = total(students[i].scores, 0,2) + students[i].a_total;
         students[i].pct = percentage(students[i].total);
-        students[i].grade = grader(static_cast<int>(students[i].pct) +0.5);
+        students[i].grade = grader(static_cast<int>(students[i].pct +0.5));
 
-        if(report ->highest.total < students[i].total){
-            report ->highest = students[i];
+        if(report.highest.total < students[i].total){
+            report.highest = students[i];
         }
-        else if(report ->lowest.total > students[i].total){
-            report ->lowest = students[i];
+        else if(report.lowest.total > students[i].total){
+            report.lowest = students[i];
         }
-            report ->avg += students[i].total;
-            report ->avg_pct += students[i].pct;
-            report->students++;
-    }
-            (report -> avg) /= (report->students);
-            (report -> avg_pct) /= (report->students);
+            report.avg += students[i].total;
+            report.avg_pct += students[i].pct;
+            report.students++;//student count goes up
+    }       // student's avg point && report points
+            (report.avg) /= (report.students);
+            (report.avg_pct) /= (report.students);
 
 }
 
@@ -119,7 +121,7 @@ void dump(ofstream &ofile, student students[], int size){
         ofile << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --" << endl;
 
             for(int i = 0; i < size; i++){
-                ofile << setw(8) << students[i].id << "  ";
+                ofile << setfill('0') << setw(8) << students[i].id << setfill(' ') << "  ";
 
             for(int j = 0; j < 11; j++){
                 ofile << setw(2) << students[i].a_points[j] << " ";
@@ -127,15 +129,17 @@ void dump(ofstream &ofile, student students[], int size){
 
             ofile << ' ' << setw(3) << students[i].a_total << "  ";
 
-            for(int j = 0 ; j < 3; j++){
-                ofile << setw(3) << students[i].scores[j] << ' ';
-            }
+            
+                ofile << setw(3) << students[i].scores[0] << "  ";
+            
+                ofile << setw(3) << students[i].scores[1] << " ";
+                ofile << setw(3) << students[i].scores[2] << " ";
 
             ofile << setw(5) << students[i].total << "  ";
-            ofile << setw(3) << percentage(students[i].total) << ' ';
+            ofile << setw(3) <<static_cast<int>(percentage(students[i].total) + 0.5) << ' ';
             ofile << students[i].grade << endl; 
             }
-            ofile.close();
+            
         }
         
         else{
@@ -146,13 +150,14 @@ void dump(ofstream &ofile, student students[], int size){
 }
 
 void reported(ofstream &ofile, stats report){
+    
     if(ofile.is_open()){
-
-       ofile << "Number of students = " << report.students << endl;
+       ofile << "\n\nNumber of students = " << report.students << endl;
        ofile << "The average total points = " << fixed << setprecision(1) << report.avg << endl;
-       ofile << "The average percent total = " << fixed << setprecision(1) << report.avg_pct << endl;
+       ofile << "The average percent total = " << fixed << setprecision(1) << report.avg_pct << "%" << endl;
        ofile << "Highest grade: Id=" << report.highest.id << "  Points=" << report.highest.total << "  Percent="<< fixed << setprecision(1)  << report.highest.pct << "%" << endl;
        ofile << "Lowest grade: Id=" << report.lowest.id << "  Points=" << report.lowest.total << "  Percent=" << fixed << setprecision(1) << report.lowest.pct << "%" << endl; 
+        ofile.close();
     }
     else{
         cerr << "file open failure";
