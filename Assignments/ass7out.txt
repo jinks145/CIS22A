@@ -53,10 +53,3 @@ Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr
 50011098  19 19 17 20 19  5  0 19 19 16 17  170   35   62  28   295   74 C 
 77012294   8 19 14 20 17 19  3 18 20 19 19  173   41   34  32   280   70 C-
 63302659  13 18 19 20 20  8 19 20 20  4 19  176   42   70  43   331   83 B 
-
-
-Number of students = 53
-The average total points = 299.1
-The average percent total = 74.9%
-Highest Grade:  Id=27029673  Points=360  Percent=90.0%
-Lowest Grade:  Id=42378406  Points=230  Percent=58.0%
