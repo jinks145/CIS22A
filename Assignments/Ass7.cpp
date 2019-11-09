@@ -89,7 +89,7 @@ void load(ifstream &ifile, student * students, int size){
         exit(1);
     }
 
-    
+
 
 }
 
