@@ -130,10 +130,10 @@ void dump(ofstream &ofile, student students[], int size){
             ofile << ' ' << setw(3) << students[i].a_total << "  ";
 
             
-                ofile << setw(3) << students[i].scores[0] << "  ";
+            ofile << setw(3) << students[i].scores[0] << "  ";
             
-                ofile << setw(3) << students[i].scores[1] << " ";
-                ofile << setw(3) << students[i].scores[2] << " ";
+            ofile << setw(3) << students[i].scores[1] << " ";
+            ofile << setw(3) << students[i].scores[2] << " ";
 
             ofile << setw(5) << students[i].total << "  ";
             ofile << setw(3) <<static_cast<int>(percentage(students[i].total) + 0.5) << ' ';
