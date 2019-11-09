@@ -3,7 +3,7 @@ Assignment#7
 Compiler : CodeBlocks
 Operating System : Win32
 Name: Brad
-Note: Load, dump and report functions perform file open checks && for end of file.
+Note: - Load, dump and report functions perform file open checks && for end of file.
 */
 
 #include <iostream>
@@ -11,12 +11,11 @@ Note: Load, dump and report functions perform file open checks && for end of fil
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include <cmath>
 using namespace std;
 
 struct student{
     int a_points[11], scores[3],  a_total, total;
-    float pct;
+    float pct;//I was not sure if I was supposed to store percentages in float format, so I took the liberty.
     string grade;
     int id;
 };//for storing student information
