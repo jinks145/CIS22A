@@ -12,19 +12,26 @@ Name: Brad
 
 using namespace std;
 
-const string name[] = {"larry", "curly", "Moe"};
+struct player{
+    const string name;
+    int total;
+};
+
 int * diceRoll();
-int  turn(string name);
+void turn(player &p);
 int total(int * arr, int size = 2);
 
 
+
 int main(){
+    player players[3] = {{"larry", 0}, {"curly", 0}, {"Moe", 0}};
+
     int totals[3] ={0,0,0};
     srand(time(NULL));
-        while(totals[0] < 100 && totals[1] < 100 && totals[2] < 100){
+        while(players[0].total < 100 && players[1].total < 100 && players[2].total < 100){
 
         for(int i =0 ; i < 3; i++){
-        totals[i] += turn(name[i]);
+         turn(players[i]);
         }
     }
     
@@ -41,18 +48,18 @@ int * diceRoll(){
     return pairs;
 }
 
-int turn(string name){// need to tweak the sum
+void turn(player &p){// need to tweak the sum
 
     int sum = 0, all = 0;
     int * outcome;
-    std::cout << name +", its your turn" << endl << "    ";
+    std::cout << p.name +", its your turn" << endl << "    ";
 
-    if(name == "larry"){
+    if(p.name == "larry"){
         outcome = diceRoll();
         sum = total(outcome);
         if(!(outcome[0] == 1 || outcome[1] == 1)){
             std::cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
-            all += sum;
+            p.total += sum;
          }
             else
             {
@@ -62,13 +69,13 @@ int turn(string name){// need to tweak the sum
         }
 
 
-    else if(name == "curly"){
+    else if(p.name == "curly"){
         for(int i = 0; i < 3; i++){
         int * outcome = diceRoll();
         sum = total(outcome);
          if(!(outcome[0] == 1 || outcome[1] == 1)){
             cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
-            all += sum;
+            p.total += sum;
          }
             else
             {
@@ -90,13 +97,13 @@ int turn(string name){// need to tweak the sum
                 cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   "skunk" << endl;
             }
 
-            all += sum;
+            p.total += sum;
         }while( outcome[0] != 1 && outcome[1] != 1);
     }
 
     cout << "That's " << all << " points for your turn" << endl;
-    cout << "Total points = " << all << endl;
-    return all;
+    cout << "Total points = " << p.total << endl;
+    
 }
 
 int  total(int * arr, int size){
