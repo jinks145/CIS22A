@@ -13,9 +13,9 @@ Name: Brad
 using namespace std;
 
 const string name[] = {"larry", "curly", "Moe"};
-vector<int> diceRoll();
+int * diceRoll();
 int  turn(string name);
-int total(vector<int> arr);
+int total(int * arr, int size = 2);
 
 
 int main(){
@@ -30,12 +30,12 @@ int main(){
     
 }
 
-vector<int> diceRoll(){
-    vector<int>  pairs;
+int * diceRoll(){
+   static int  pairs[2];
     
 
-   pairs.push_back(rand() % 6  + 1);
-   pairs.push_back(rand() % 6  + 1);
+   pairs[0] = rand() % 6  + 1;
+   pairs[1] = rand() % 6  + 1;
 
 
     return pairs;
@@ -44,11 +44,11 @@ vector<int> diceRoll(){
 int turn(string name){// need to tweak the sum
 
     int sum = 0, all = 0;
-    vector<int> outcome;
+    int * outcome;
     std::cout << name +", its your turn" << endl << "    ";
 
     if(name == "larry"){
-        vector<int> outcome = diceRoll();
+        outcome = diceRoll();
         sum = total(outcome);
         if(!(outcome[0] == 1 || outcome[1] == 1)){
             std::cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
@@ -64,7 +64,7 @@ int turn(string name){// need to tweak the sum
 
     else if(name == "curly"){
         for(int i = 0; i < 3; i++){
-        vector<int> outcome = diceRoll();
+        int * outcome = diceRoll();
         sum = total(outcome);
          if(!(outcome[0] == 1 || outcome[1] == 1)){
             cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
@@ -99,9 +99,9 @@ int turn(string name){// need to tweak the sum
     return all;
 }
 
-int  total(vector<int> arr){
+int  total(int * arr, int size){
     int sum = 0;
-    for(int i = 0; i < arr.size(); i++){
+    for(int i = 0; i < size; i++){
     sum += arr[i];
     }
     return sum;
