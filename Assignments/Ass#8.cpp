@@ -20,28 +20,34 @@ struct player{
 int * diceRoll();
 void turn(player &p);
 int total(int * arr, int size = 2);
-int skunk(int & t_total, int & sum, int & total, int * pair);
+bool skunk(int & t_total, int & sum, int & total, int * pair);
 
 
 int main(){
-    player players[3] = {{"larry", 0}, {"curly", 0}, {"Moe", 0}}, winner;
+    player players[3] = {{"Larry", 0}, {"Curly", 0}, {"Moe", 0}};
+    int index = 0;
     
 
     srand(time(NULL));
         while(players[0].total < 100 && players[1].total < 100 && players[2].total < 100){
 
+
         for(int i =0 ; i < 3; i++){
          turn(players[i]);
 
-            if(players[i].total > 100){
-                cout << players[i].name << " won the game with " << players[i].total << " points";
-                break;
+            if(players[index].total < players[i].total){
+                index = i;
             }
-            
+        }
+
+        if(!(players[0].total < 100 && players[1].total < 100 && players[2].total < 100)){
+            break;
         }
 
     }
     
+    cout << players[index].name << " won the game with " << players[index].total << " points.";
+
 }
 
 int * diceRoll(){
@@ -55,36 +61,44 @@ int * diceRoll(){
     return pairs;
 }
 
-int skunk(int & t_total, int & sum, int &total, int * outcome){
+bool skunk(int & t_total, int & sum, int &total, int * outcome){
 
-    if(outcome[0] == 1 || outcome[1] == 1){
-         t_total = 0; 
-         cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
-        return 2;
-    }
-    else if(outcome[0] == 1 && outcome[1] == 1){
+    
+    if(outcome[0] == 1 && outcome[1] == 1){
+
         t_total = 0;
         sum = 0; 
         total = 0;
+
         cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's SKUNK" << endl;
-        return 1;
+        return true;
     }
-    else{
-        t_total += sum;
-        total += t_total;
+
+    else if(outcome[0] == 1 || outcome[1] == 1){
+
+        t_total = 0;
+        sum = 0;
         cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
-        return 0;
+
+        return true;
+    }
+
+    else{
+        t_total += sum;        
+        cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
+        return false;
     }
 
 }
 
 void turn(player &p){// need to tweak the sum
 
-    int sum = 0, t_total = 0, flag;
-    int * outcome;
-    std::cout << p.name +", its your turn" << endl << "    ";
+    int sum = 0, t_total = 0,* outcome;
+    bool flag = false;
+    
+    std::cout << p.name +", its your turn" << endl;
 
-    if(p.name == "larry"){
+    if(p.name == "Larry"){
         outcome = diceRoll();
         sum = total(outcome);
         
@@ -92,17 +106,19 @@ void turn(player &p){// need to tweak the sum
 
         }
 
-
-    else if(p.name == "curly"){
+    else if(p.name == "Curly"){
         for(int i = 0; i < 3; i++){
+            if(flag) break;
 
             outcome = diceRoll();
             sum = total(outcome);
         
             flag = skunk(t_total, sum, p.total, outcome);
 
-            if(!flag) break;
         }
+
+        
+        
     }
 
     else{
@@ -111,14 +127,22 @@ void turn(player &p){// need to tweak the sum
             
             sum = total(outcome);
 
+            
+
             flag = skunk(t_total, sum, p.total, outcome);
 
             
-        }
-    }
 
-    cout << "That's " << t_total << " points for your turn" << endl;
-    cout << "Total points = " << p.total << endl;
+            
+            
+        }
+        
+        
+    }
+    p.total += t_total;
+
+    cout << "  That's " << t_total << " points for your turn" << endl;
+    cout << "Total points = " << p.total << endl << endl;
     
 }
 
