@@ -1,6 +1,6 @@
 Stock:   CAT
 Current Date: 2019-09-06
-Current Close:  122.70
+Current Close: $122.70
 Market Days  Start Date  Close Price  Up Days  Down Days   Gain  Pct Gain  Max Close  Avg Close
 -----------  ----------  -----------  -------  ---------   ----  --------  ---------  ---------
           5  2019-08-30    119.00        2        3        3.70     3.11%     122.99     120.16

@@ -8,23 +8,23 @@ Name: Brad
 #include <cstdlib>
 #include <string>
 #include <ctime>
-#include <vector>
+
 
 using namespace std;
 
 struct player{
     const string name;
     int total;
-};
+};// represents a player
 
-int * diceRoll();
-void turn(player &p);
-int total(int * arr, int size = 2);
-bool skunk(int & t_total, int & sum, int & total, int * pair);
+int * diceRoll();// spits out a pair of dice rolls
+void turn(player &p);//playing 
+int total(int * arr, int size = 2);//sum
+bool skunk(int & t_total, int & sum, int & total, int * pair);//determines if it's a skunk or a valid turn 
 
 
 int main(){
-    player players[3] = {{"Larry", 0}, {"Curly", 0}, {"Moe", 0}};
+    player players[3] = {{"Larry", 0}, {"Curly", 0}, {"Moe", 0}};// init 3 players
     int index = 0;
     
 
@@ -36,18 +36,23 @@ int main(){
          turn(players[i]);
 
             if(players[index].total < players[i].total){
-                index = i;
+                index = i;//sets the index to the highest scoring player's index
             }
+
+            if(!(players[0].total < 100 && players[1].total < 100 && players[2].total < 100)){
+            break;
+            }
+
         }
 
         if(!(players[0].total < 100 && players[1].total < 100 && players[2].total < 100)){
             break;
-        }
+        }//
 
     }
     
     cout << players[index].name << " won the game with " << players[index].total << " points.";
-
+    // prints the highest players
 }
 
 int * diceRoll(){
@@ -91,12 +96,12 @@ bool skunk(int & t_total, int & sum, int &total, int * outcome){
 
 }
 
-void turn(player &p){// need to tweak the sum
+void turn(player &p){
 
     int sum = 0, t_total = 0,* outcome;
     bool flag = false;
     
-    std::cout << p.name +", its your turn" << endl;
+    cout << endl << p.name +", its your turn" << endl;
 
     if(p.name == "Larry"){
         outcome = diceRoll();
@@ -115,10 +120,7 @@ void turn(player &p){// need to tweak the sum
         
             flag = skunk(t_total, sum, p.total, outcome);
 
-        }
-
-        
-        
+        }        
     }
 
     else{
@@ -127,14 +129,8 @@ void turn(player &p){// need to tweak the sum
             
             sum = total(outcome);
 
-            
-
             flag = skunk(t_total, sum, p.total, outcome);
-
-            
-
-            
-            
+        
         }
         
         
@@ -142,7 +138,12 @@ void turn(player &p){// need to tweak the sum
     p.total += t_total;
 
     cout << "  That's " << t_total << " points for your turn" << endl;
-    cout << "Total points = " << p.total << endl << endl;
+
+    if(p.total >= 100){
+        return;
+    } 
+
+    cout << "Total points = " << p.total << endl;
     
 }
 

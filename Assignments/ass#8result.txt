@@ -1,18 +1,91 @@
+
 Larry, its your turn
-    You rolled 3 and 6.  That's 9
-  That's 9 points for your turn
-Total points = 9
+    You rolled 2 and 2.  That's 4
+  That's 4 points for your turn
+Total points = 4
+
+Curly, its your turn
+    You rolled 5 and 3.  That's 8
+    You rolled 4 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Moe, its your turn
+    You rolled 6 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 5 and 5.  That's 10
+  That's 10 points for your turn
+Total points = 14
 
 Curly, its your turn
     You rolled 2 and 2.  That's 4
-    You rolled 6 and 4.  That's 10
-    You rolled 6 and 4.  That's 10
+    You rolled 1 and 6.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Moe, its your turn
+    You rolled 2 and 3.  That's 5
+    You rolled 3 and 3.  That's 6
+    You rolled 2 and 6.  That's 8
+    You rolled 4 and 4.  That's 8
+    You rolled 4 and 6.  That's 10
+    You rolled 3 and 3.  That's 6
+    You rolled 5 and 3.  That's 8
+    You rolled 1 and 6.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 4 and 6.  That's 10
+  That's 10 points for your turn
+Total points = 24
+
+Curly, its your turn
+    You rolled 5 and 2.  That's 7
+    You rolled 4 and 5.  That's 9
+    You rolled 4 and 4.  That's 8
   That's 24 points for your turn
 Total points = 24
 
 Moe, its your turn
-    You rolled 6 and 5.  That's 11
     You rolled 5 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 1 and 1.  That's SKUNK
+  That's 0 points for your turn
+Total points = 0
+
+Curly, its your turn
+    You rolled 4 and 3.  That's 7
+    You rolled 6 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 24
+
+Moe, its your turn
+    You rolled 4 and 4.  That's 8
+    You rolled 2 and 5.  That's 7
+    You rolled 5 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 5 and 4.  That's 9
+  That's 9 points for your turn
+Total points = 9
+
+Curly, its your turn
+    You rolled 2 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 24
+
+Moe, its your turn
+    You rolled 2 and 2.  That's 4
+    You rolled 1 and 2.  That's 0
   That's 0 points for your turn
 Total points = 0
 
@@ -22,63 +95,27 @@ Larry, its your turn
 Total points = 17
 
 Curly, its your turn
-    You rolled 1 and 5.  That's 0
+    You rolled 3 and 4.  That's 7
+    You rolled 4 and 1.  That's 0
   That's 0 points for your turn
 Total points = 24
 
 Moe, its your turn
-    You rolled 1 and 5.  That's 0
+    You rolled 1 and 6.  That's 0
   That's 0 points for your turn
 Total points = 0
 
 Larry, its your turn
+    You rolled 5 and 5.  That's 10
+  That's 10 points for your turn
+Total points = 27
+
+Curly, its your turn
+    You rolled 6 and 4.  That's 10
+    You rolled 2 and 5.  That's 7
     You rolled 1 and 1.  That's SKUNK
   That's 0 points for your turn
 Total points = 0
-
-Curly, its your turn
-    You rolled 6 and 5.  That's 11
-    You rolled 5 and 2.  That's 7
-    You rolled 1 and 5.  That's 0
-  That's 0 points for your turn
-Total points = 24
-
-Moe, its your turn
-    You rolled 6 and 2.  That's 8
-    You rolled 5 and 6.  That's 11
-    You rolled 5 and 5.  That's 10
-    You rolled 1 and 1.  That's SKUNK
-  That's 0 points for your turn
-Total points = 0
-
-Larry, its your turn
-    You rolled 6 and 5.  That's 11
-  That's 11 points for your turn
-Total points = 11
-
-Curly, its your turn
-    You rolled 2 and 3.  That's 5
-    You rolled 5 and 5.  That's 10
-    You rolled 3 and 3.  That's 6
-  That's 21 points for your turn
-Total points = 45
-
-Moe, its your turn
-    You rolled 1 and 2.  That's 0
-  That's 0 points for your turn
-Total points = 0
-
-Larry, its your turn
-    You rolled 3 and 5.  That's 8
-  That's 8 points for your turn
-Total points = 19
-
-Curly, its your turn
-    You rolled 4 and 6.  That's 10
-    You rolled 6 and 6.  That's 12
-    You rolled 6 and 5.  That's 11
-  That's 33 points for your turn
-Total points = 78
 
 Moe, its your turn
     You rolled 5 and 1.  That's 0
@@ -86,24 +123,189 @@ Moe, its your turn
 Total points = 0
 
 Larry, its your turn
-    You rolled 2 and 4.  That's 6
-  That's 6 points for your turn
-Total points = 25
+    You rolled 1 and 5.  That's 0
+  That's 0 points for your turn
+Total points = 27
 
 Curly, its your turn
-    You rolled 5 and 6.  That's 11
-    You rolled 4 and 5.  That's 9
-    You rolled 6 and 5.  That's 11
-  That's 31 points for your turn
-Total points = 109
+    You rolled 2 and 2.  That's 4
+    You rolled 6 and 2.  That's 8
+    You rolled 1 and 5.  That's 0
+  That's 0 points for your turn
+Total points = 0
 
 Moe, its your turn
-    You rolled 5 and 2.  That's 7
-    You rolled 2 and 3.  That's 5
-    You rolled 6 and 6.  That's 12
+    You rolled 1 and 1.  That's SKUNK
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 2 and 4.  That's 6
+  That's 6 points for your turn
+Total points = 33
+
+Curly, its your turn
+    You rolled 1 and 6.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Moe, its your turn
+    You rolled 6 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 6 and 3.  That's 9
+  That's 9 points for your turn
+Total points = 42
+
+Curly, its your turn
+    You rolled 2 and 6.  That's 8
+    You rolled 4 and 3.  That's 7
+    You rolled 4 and 3.  That's 7
+  That's 22 points for your turn
+Total points = 22
+
+Moe, its your turn
     You rolled 5 and 4.  That's 9
+    You rolled 4 and 3.  That's 7
+    You rolled 6 and 3.  That's 9
+    You rolled 1 and 5.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 3 and 3.  That's 6
+  That's 6 points for your turn
+Total points = 48
+
+Curly, its your turn
+    You rolled 6 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 22
+
+Moe, its your turn
     You rolled 1 and 2.  That's 0
   That's 0 points for your turn
 Total points = 0
 
-Curly won the game with 109 points.
+Larry, its your turn
+    You rolled 5 and 3.  That's 8
+  That's 8 points for your turn
+Total points = 56
+
+Curly, its your turn
+    You rolled 4 and 3.  That's 7
+    You rolled 3 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 22
+
+Moe, its your turn
+    You rolled 3 and 5.  That's 8
+    You rolled 4 and 2.  That's 6
+    You rolled 6 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 5 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 56
+
+Curly, its your turn
+    You rolled 2 and 4.  That's 6
+    You rolled 3 and 2.  That's 5
+    You rolled 6 and 6.  That's 12
+  That's 23 points for your turn
+Total points = 45
+
+Moe, its your turn
+    You rolled 5 and 2.  That's 7
+    You rolled 6 and 3.  That's 9
+    You rolled 4 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 1 and 2.  That's 0
+  That's 0 points for your turn
+Total points = 56
+
+Curly, its your turn
+    You rolled 4 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 45
+
+Moe, its your turn
+    You rolled 5 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 2 and 3.  That's 5
+  That's 5 points for your turn
+Total points = 61
+
+Curly, its your turn
+    You rolled 1 and 3.  That's 0
+  That's 0 points for your turn
+Total points = 45
+
+Moe, its your turn
+    You rolled 2 and 4.  That's 6
+    You rolled 4 and 6.  That's 10
+    You rolled 1 and 2.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 3 and 4.  That's 7
+  That's 7 points for your turn
+Total points = 68
+
+Curly, its your turn
+    You rolled 3 and 6.  That's 9
+    You rolled 4 and 6.  That's 10
+    You rolled 6 and 2.  That's 8
+  That's 27 points for your turn
+Total points = 72
+
+Moe, its your turn
+    You rolled 1 and 4.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 2 and 4.  That's 6
+  That's 6 points for your turn
+Total points = 74
+
+Curly, its your turn
+    You rolled 2 and 2.  That's 4
+    You rolled 2 and 2.  That's 4
+    You rolled 4 and 2.  That's 6
+  That's 14 points for your turn
+Total points = 86
+
+Moe, its your turn
+    You rolled 4 and 1.  That's 0
+  That's 0 points for your turn
+Total points = 0
+
+Larry, its your turn
+    You rolled 3 and 4.  That's 7
+  That's 7 points for your turn
+Total points = 81
+
+Curly, its your turn
+    You rolled 5 and 2.  That's 7
+    You rolled 6 and 4.  That's 10
+    You rolled 3 and 6.  That's 9
+  That's 26 points for your turn
+Total points = 112
+
+Moe, its your turn
+    You rolled 1 and 1.  That's SKUNK
+  That's 0 points for your turn
+Total points = 0
+Curly won the game with 112 points.
