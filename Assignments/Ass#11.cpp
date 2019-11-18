@@ -12,9 +12,10 @@ using namespace std;
 
 void load(ifstream &ifile, string * arr, int size = 20000);
 bool search(string arr[], string ID, int lo, int high);
-void selectionSort(string a[], int size = 20000);
+void selectionSort(string  a[], int size = 20000);
+void qsort(string  a[], int size = 20000);
 int lexcomp(string a, string b);
-void reverse(string * arr, int size);
+
 
 
 int main(){
@@ -34,7 +35,7 @@ int main(){
 
     for(int i = 0; i < 84; i++){
         if(!search(words[0], words[1][i], 0, 19999)){
-            ofile << "keyword not found: " << words[1][i];
+            ofile << "keyword not found: " << words[1][i] << endl;
             ne_c++;
         }
     }
@@ -59,58 +60,50 @@ void dump(){
 
 }
 
-int lexcomp(string a, string b){
+int lexcomp(string a, string b){// a is the pivot for comparison
+    
+        int size = (a.length() >= b.length()) ? a.length() : b.length();
 
-    int size = (a.length() < b.length()) ? a.length() : b.length();
-    
-    
-    for(int i = 0; i < size; i++){
-        if(a[i] < b[i]){
-            return 1;
+        for(int i = 0; i < size; i++){
+            if(a[i] < b[i]){//if a is earlier
+                return -1;
+            }
+        else if(a[i] > b[i]){// if a is later
+            return 1;// if a comes later than b
+            }
         }
-        else if(a[i] > b[i]){
-            return -1;// if a comes later than b
-        }
+    
+    if(b.length() == size){
+        return 0;
     }
-
+    else if(a.find(b)){
+        return 1;
+    }
+    else if (b.find(a))
+    {
+        return -1;
+    }
     
-    
-
-    return 0;
 }
 
-void selectionSort(string * a, int size){
+void selectionSort(string a[], int size){
     int lowest = 0;    
     string tmp;
-    for(int i = 0; i < size; i++){
-        if(lexcomp(a[lowest], a[i]) < 0){
-            lowest = i;
-        }
-    }
+    
 
-    for(int i = 0; i < size; i++){
-        for(int j = i; j < size; j++){
-            if(lexcomp(a[lowest], a[j]) > 0){
+    for(int i = 0; i < size - 1; i++){
+        lowest = i;
+        for(int j = i + 1; j < size; j++){
+            if(lexcomp(a[j], a[lowest]) < 0){
                 lowest = j;
             }
             
         }
-
         tmp = a[lowest];
         a[lowest] = a[i];
         a[i] = tmp;
     }
 
-    reverse(a, size);
-}
-
-void reverse(string * arr, int size){
-    
-    for(int i = 0; i < size/2; i++){
-        string tmp = arr[size -1 - i];
-        arr[size -1 - i] = arr[i];
-        arr[i] = tmp;
-    }
 }
 
 bool search(string arr[], string ID, int lo, int high){
@@ -120,16 +113,18 @@ bool search(string arr[], string ID, int lo, int high){
             return true;
         }
     
-        else if( lexcomp(arr[pivot], ID) > 0){
+        else if( lexcomp(ID, arr[pivot]) < 0){
         return search(arr, ID, lo, --pivot);
         }
 
-        else if(lexcomp(arr[pivot], ID) < 0){
+        else if(lexcomp(ID, arr[pivot]) > 0){
         return search(arr, ID, ++pivot, high);
         }
-    }
-    
-    return false;
 
+        
+    }
+    else{
+            return false;
+    }
     
 }

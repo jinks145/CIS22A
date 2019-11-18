@@ -9,7 +9,6 @@ Name: Brad
 #include <string>
 #include <ctime>
 
-
 using namespace std;
 
 struct player{
@@ -83,7 +82,7 @@ bool skunk(int & t_total, int & sum, int &total, int * outcome){
 
         t_total = 0;
         sum = 0;
-        cout << "    " << "You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
+        cout << "    You rolled " << outcome[0] << " and " << outcome[1] << ".  That's " <<   sum << endl;
 
         return true;
     }

@@ -308,4 +308,4 @@ Moe, its your turn
     You rolled 1 and 1.  That's SKUNK
   That's 0 points for your turn
 Total points = 0
-Curly won the game with 112 points.
+Curly won the game with 112 points
