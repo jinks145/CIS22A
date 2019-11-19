@@ -13,7 +13,8 @@ using namespace std;
 void load(ifstream &ifile, string * arr, int size = 20000);
 bool search(string arr[], string ID, int lo, int high);
 void selectionSort(string  a[], int size = 20000);
-void qsort(string  a[], int size = 20000);
+void qsort(string  a[], int lo = 0, int hi = 20000 - 1);
+int partition(string arr[],int lo, int hi);
 int lexcomp(string a, string b);
 
 
@@ -30,15 +31,22 @@ int main(){
     load(dict, words[0]);
     load(keywords, words[1], 84);
 
-    selectionSort(words[0]);
-    selectionSort(words[1], 84);
+    // qsort(words[0], 0);
+    // qsort(words[1], 0, 84);
+     selectionSort(words[0]);
+     selectionSort(words[1], 84);
 
-    for(int i = 0; i < 84; i++){
-        if(!search(words[0], words[1][i], 0, 19999)){
-            ofile << "keyword not found: " << words[1][i] << endl;
-            ne_c++;
+    if(ofile.is_open()){
+        for(int i = 0; i < 84; i++){
+            
+            if(!search(words[0], words[1][i], 0, 19999)){
+                ofile << "keyword not found: " << words[1][i] << endl;
+                ne_c++;
+            }
+
         }
     }
+    
 
     cout << "Number of keywords not found = " << ne_c;
 }
@@ -47,7 +55,7 @@ void load(ifstream &ifile, string * arr, int size){
    
     if(ifile.is_open()){
         
-        for(int i = 0; i < size; i++){
+        for(int i = 0; i < size && !ifile.eof(); i++){
          getline(ifile, arr[i]);
         }
 
@@ -56,6 +64,40 @@ void load(ifstream &ifile, string * arr, int size){
     
 }
 
+int partition(string arr[],int lo, int hi){
+    string pivot = arr[hi];
+    string tmp;
+    int i = lo - 1;
+
+    for(int j = lo; j < hi; j++){
+        if(lexcomp(arr[j], pivot) < 0){
+            i++;
+            tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+    }
+            
+
+
+            tmp = arr[i+1];
+            arr[i+1] = arr[hi];
+            arr[hi] = tmp;
+
+    return i+1;
+}
+
+void qsort(string arr[], int lo, int hi){
+   
+   if(lo < hi){
+        int pi = partition(arr, lo, hi);
+
+        qsort(arr, lo, pi - 1);
+       
+        qsort(arr, pi + 1, hi);
+   }
+
+}
 
 int lexcomp(string a, string b){// a is the pivot for comparison
     
