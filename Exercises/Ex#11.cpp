@@ -13,9 +13,11 @@ using namespace std;
 const int s_size = 50;
 
 int load(ifstream &ifile, int * arr, int size);//load
-int sort(int * arr, int lo, int high);//quicksort
+int sort(int arr[], int lo, int high);//quicksort
 bool search(int * arr, string ID, int lo, int high);//performs a binary search
 void print(int * arr, int size);//prints the first 5 and the last 5 elements 
+
+
 
 int main(){
 
@@ -48,7 +50,12 @@ int load(ifstream &ifile, int * arr, int size){
     }
 }
 
-int sort(int * arr, int lo, int high){
+int sort(int arr[], int lo, int high){
+
+    if(lo < high){
+        
+    }
+
 
 }
 

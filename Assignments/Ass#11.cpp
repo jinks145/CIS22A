@@ -56,19 +56,16 @@ void load(ifstream &ifile, string * arr, int size){
     
 }
 
-void dump(){
-
-}
 
 int lexcomp(string a, string b){// a is the pivot for comparison
     
         int size = (a.length() >= b.length()) ? a.length() : b.length();
 
         for(int i = 0; i < size; i++){
-            if(a[i] < b[i]){//if a is earlier
+            if(a[i] < b[i]){//if a is earlier than b
                 return -1;
             }
-        else if(a[i] > b[i]){// if a is later
+        else if(a[i] > b[i]){// if a comes later than b
             return 1;// if a comes later than b
             }
         }

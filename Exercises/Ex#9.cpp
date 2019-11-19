@@ -12,10 +12,10 @@ Name: Brad
 #include <cmath>
 using namespace std;
 
-int reven();
+int reven();// churns out a even number
 
 int main(){
-    short numbers[10];
+    int numbers[10];
 
     srand(time(0));
 
@@ -24,15 +24,15 @@ int main(){
     }
 
     for(int i = 0; i < 10; i++){
-        cout << right << setw(8) << i << setw(8) << numbers[i] << setw(3) << setprecision(4) << sqrt(numbers[i]) << endl;
+        cout << right << setw(8) << i << setw(8) << numbers[i] << setw(8) << setprecision(4) << sqrt(numbers[i]) << endl;
     }
 }
 
 int reven(){
-    short num = -1;
+    int num = -1;
 
     while(num % 2 != 0){
-        num = rand() % 100 + 1;
+        num = rand() % 99 + 2;
     }
 
     return num;
