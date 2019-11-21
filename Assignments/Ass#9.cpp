@@ -17,7 +17,7 @@ void load(ifstream &loader, int data[], int size);
 int total(int numbers[], int start, int end);
 int percentage(int total);
 string grader(string data, int percentage);
-string compute(int  data[], int size);
+string compute(int * data, int size);
 void dump(ofstream &dumper, int * data);
 int min(int numbers[], int start, int end);
 int pm(int percentage);
@@ -31,15 +31,16 @@ int main(){
     
     dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";
     dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- ß--\n";
-    for(int i = 0; i < 50; i++){
-        load(loader, data[i], 16);
-        compute(data[i], 20);
-
-        dump(dumper, data[i]);
+    for(int i = 0; i < 53; i++){
 
         if(loader.eof()){
             break;
         }
+
+        load(loader, data[i], 16);
+        compute(data[i], 20);
+
+        dump(dumper, data[i]);
     }
 
 
@@ -48,7 +49,7 @@ int main(){
 
 }
 
-void load(ifstream &loader, int data[], int size){//loads data from file
+void load(ifstream &loader, int * data, int size){//loads data from file
     
     if(loader.is_open()){
 
