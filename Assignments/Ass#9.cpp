@@ -28,7 +28,7 @@ int pm(int percentage);// determine the suffix
 int main(){
     ifstream loader("ass7data.txt");
     ofstream dumper("ass9output.txt");
-    int data[53][21];
+    int data[53][20];
     
     dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";// headings
     dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --\n";
@@ -38,7 +38,7 @@ int main(){
 
         load(loader, data[i], 16);// loads them into array
 
-        if(loader.eof()){// eof check
+        if(loader.eof() || static_cast<char>(data[i][0]) == '\n'){// eof check
             break;
         }
 
@@ -65,7 +65,8 @@ void load(ifstream &loader, int data[], int size){//loads data from file
 
     for(int i = 13; i < size; i++){
         loader >> data[i];// load array with data in the order of midterm, finals, lab exercise
-    }
+        }
+        
     data[12] = 0;//set assignment total to 0
     data[16] = 0;//set total to 0;
     
