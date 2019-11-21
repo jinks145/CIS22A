@@ -56,7 +56,9 @@ bool isPrime(int n){
 }
 
 int findPrime(int num){
+    
     int half = num /2;
+
     for(int i = half ; i > 1; i--){
         if(isPrime(i)){
             return i;
