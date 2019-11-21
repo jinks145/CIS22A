@@ -13,11 +13,11 @@ Name: Brad
 using namespace std;
 
 const int MAX = 400;
-void load(ifstream &loader, int * data, int size);
+void load(ifstream &loader, int data[], int size);
 int total(int numbers[], int start, int end);
 int percentage(int total);
 string grader(string data, int percentage);
-string compute(int * data, int size);
+string compute(int  data[], int size);
 void dump(ofstream &dumper, int * data);
 int min(int numbers[], int start, int end);
 int pm(int percentage);
@@ -27,7 +27,7 @@ int pm(int percentage);
 int main(){
     ifstream loader("ass7data.txt");
     ofstream dumper("ass9output.txt");
-    int data[50][20];
+    int data[53][21];
     
     dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";
     dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- ß--\n";
@@ -36,6 +36,10 @@ int main(){
         compute(data[i], 20);
 
         dump(dumper, data[i]);
+
+        if(loader.eof()){
+            break;
+        }
     }
 
 
@@ -44,7 +48,7 @@ int main(){
 
 }
 
-void load(ifstream &loader, int * data, int size){//loads data from file
+void load(ifstream &loader, int data[], int size){//loads data from file
     
     if(loader.is_open()){
 
