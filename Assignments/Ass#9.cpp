@@ -19,7 +19,7 @@ int total(int numbers[], int start, int end);// total of array's section
 int percentage(int total);//percentage
 int grader(string data, int percentage);//grader
 void compute(int  data[], int size);//compute data in a array
-void dump(ofstream &dumper, int data[]);// dumps into a file 
+void dump(ofstream &dumper, int data[], int cnt);// dumps into a file 
 int min(int numbers[], int start, int end);// finds the smallest element of the arr
 int pm(int percentage);// determine the suffix
 
@@ -38,13 +38,13 @@ int main(){
 
         load(loader, data[i], 16);// loads them into array
 
-        if(loader.eof() || static_cast<char>(data[i][0]) == '\n'){// eof check
+        if(loader.eof() || data[i][0] == '\n'){// eof check
             break;
         }
 
         compute(data[i], 20);// calculates the fa
 
-        dump(dumper, data[i]);//dumps them to ass9output.txt
+        dump(dumper, data[i], i);//dumps them to ass9output.txt
     }
 
 
@@ -66,7 +66,7 @@ void load(ifstream &loader, int data[], int size){//loads data from file
     for(int i = 13; i < size; i++){
         loader >> data[i];// load array with data in the order of midterm, finals, lab exercise
         }
-        
+
     data[12] = 0;//set assignment total to 0
     data[16] = 0;//set total to 0;
     
@@ -80,7 +80,7 @@ void load(ifstream &loader, int data[], int size){//loads data from file
     
 }
 
-void dump(ofstream &dumper, int * data){//dumps data to the desired file
+void dump(ofstream &dumper, int  data[], int cnt){//dumps data to the desired file
     string grade;
    if(dumper.is_open()){
        dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' ');// print id
@@ -98,13 +98,16 @@ void dump(ofstream &dumper, int * data){//dumps data to the desired file
         grade += static_cast<char>(data[18]);// set grade
 
         if(static_cast<char>(data[19]) == ' '){
-           dumper << " " << left << setw(3) << static_cast<char>(data[18]) << endl;
+           dumper << " " << left << setw(3) << static_cast<char>(data[18]);
         }
         else{
             grade += static_cast<char>(data[19]);// add suffix
-            dumper << " " << left << setw(3) << grade << endl;// print grade
+            dumper << " " << left << setw(3) << grade;// print grade
         }
 
+        if(cnt < 52){
+           dumper << endl; 
+        }
         
    }
 
