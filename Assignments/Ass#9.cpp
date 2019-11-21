@@ -5,6 +5,7 @@ Operating System : Win32
 Name: Brad
 */
 #include <iostream>
+#include <cstdlib>
 #include <iomanip>
 #include <fstream>
 #include <cmath>
@@ -12,15 +13,15 @@ Name: Brad
 
 using namespace std;
 
-const int MAX = 400;
-void load(ifstream &loader, int data[], int size);
-int total(int numbers[], int start, int end);
-int percentage(int total);
-string grader(string data, int percentage);
-string compute(int * data, int size);
-void dump(ofstream &dumper, int * data);
-int min(int numbers[], int start, int end);
-int pm(int percentage);
+const int MAX = 400;// max points
+void load(ifstream &loader, int data[], int size);// loads a student record
+int total(int numbers[], int start, int end);// total of array's section
+int percentage(int total);//percentage
+int grader(string data, int percentage);//grader
+void compute(int  data[], int size);//compute data in a array
+void dump(ofstream &dumper, int data[]);// dumps into a file 
+int min(int numbers[], int start, int end);// finds the smallest element of the arr
+int pm(int percentage);// determine the suffix
 
 
 
@@ -29,44 +30,51 @@ int main(){
     ofstream dumper("ass9output.txt");
     int data[53][21];
     
-    dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";
-    dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- ß--\n";
-    for(int i = 0; i < 53; i++){
+    dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";// headings
+    dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --\n";
+    for(int i = 0; i < 53; i++){//one student record at a time
 
-        if(loader.eof()){
+        
+
+        load(loader, data[i], 16);// loads them into array
+
+        if(loader.eof()){// eof check
             break;
         }
 
-        load(loader, data[i], 16);
-        compute(data[i], 20);
+        compute(data[i], 20);// calculates the fa
 
-        dump(dumper, data[i]);
+        dump(dumper, data[i]);//dumps them to ass9output.txt
     }
 
 
-    loader.close();
-    dumper.close();
+    loader.close();// loader close
+    dumper.close();// dumper close
 
 }
 
-void load(ifstream &loader, int * data, int size){//loads data from file
+void load(ifstream &loader, int data[], int size){//loads data from file
     
     if(loader.is_open()){
 
-    for(int i = 0; i < 12; i++){
+    for(int i = 0; i < 12; i++){// from id to 11 assignments
             
             loader >> data[i];
          
         }
 
     for(int i = 13; i < size; i++){
-        loader >> data[i];
+        loader >> data[i];// load array with data in the order of midterm, finals, lab exercise
     }
-    
+    data[12] = 0;//set assignment total to 0
+    data[16] = 0;//set total to 0;
     
     }
-    data[12] = 0;
-    data[16] = 0;
+
+    else{
+        cerr << "file open failure!!";
+        exit(1);
+    }
     
     
 }
@@ -74,30 +82,35 @@ void load(ifstream &loader, int * data, int size){//loads data from file
 void dump(ofstream &dumper, int * data){//dumps data to the desired file
     string grade;
    if(dumper.is_open()){
-       dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' ');
+       dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' ');// print id
 
        for(int i = 1; i < 15; i++){
             if( i < 12)
-            dumper << " "<< setw(2) << data[i];
+            dumper << " "<< setw(2) << data[i];// print assignment scores
             else 
-            dumper << "  " << setw(3) << data[i];
+            dumper << "  " << setw(3) << data[i];// print assignment total and midterms, finals, lab ex 
             
         }
 
         dumper << " " << setw(3) << data[15] << " " << setw(5) << data[16] << "  " << setw(3) << data[17];
-        
-        grade += static_cast<char>(data[18]);
+        //print total and percentage
+        grade += static_cast<char>(data[18]);// set grade
 
         if(static_cast<char>(data[19]) == ' '){
            dumper << " " << left << setw(3) << static_cast<char>(data[18]) << endl;
         }
         else{
-            grade += static_cast<char>(data[19]);
-            dumper << " " << left << setw(3) << grade << endl;
+            grade += static_cast<char>(data[19]);// add suffix
+            dumper << " " << left << setw(3) << grade << endl;// print grade
         }
 
         
    }
+
+   else{
+        cerr << "file open failure!!";
+        exit(1);
+    }
 
 }
 
@@ -168,7 +181,7 @@ int pm(int percentage){
 
 
 
-string compute(int * data, int size){
+void compute(int data[], int size){
     data[12] = total(data, 1, 11) - min(data, 1, 11);
     data[16] = total(data, 12, 15);
 

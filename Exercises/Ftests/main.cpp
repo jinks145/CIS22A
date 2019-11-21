@@ -46,16 +46,28 @@ void qsort(int arr[], int lo, int hi){
 }
 
 
-
-int main()
-{
-    //ifstream ifile("ass6data.txt");
-    int IDs[7] = {10, 80, 30, 90, 40, 50, 70};
-
-    qsort(IDs, 0, 6);
-
-    for(int i = 0; i < 7; i++){
-        cout << IDs[i] << ", ";
+bool isPrime(int n){
+    for(int i = 2; i < n ; i++){
+        if(n % i == 0){
+            return false;
+        }
     }
+    return true;
+}
+
+int findPrime(int num){
+    int half = num /2;
+    for(int i = half ; i > 1; i--){
+        if(isPrime(i)){
+            return i;
+        }
+    }
+    return 0;
+}
+
+int main(){
+    cout << "for 13: "<< boolalpha << (findPrime(13) == 5) << endl;
+    cout << "for 25: "<< boolalpha <<  (findPrime(25) == 11) << endl;
+    cout << "for 55: "<< boolalpha <<  (findPrime(55) == 23) << endl;
 }
 
