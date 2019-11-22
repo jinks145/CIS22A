@@ -19,7 +19,7 @@ int total(int numbers[], int start, int end);// total of array's section
 int percentage(int total);//percentage
 int grader(string data, int percentage);//grader
 void compute(int  data[], int size);//compute data in a array
-void dump(ofstream &dumper, int data[], int cnt);// dumps into a file 
+void dump(ifstream &loader, ofstream &dumper, int  data[]);// dumps into a file 
 int min(int numbers[], int start, int end);// finds the smallest element of the arr
 int pm(int percentage);// determine the suffix
 
@@ -28,23 +28,22 @@ int pm(int percentage);// determine the suffix
 int main(){
     ifstream loader("ass7data.txt");
     ofstream dumper("ass9output.txt");
-    int data[53][20];
+    int cnt = 0;
     
     dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";// headings
     dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --\n";
-    for(int i = 0; i < 53; i++){//one student record at a time
+    while(!loader.eof()){//one student record at a time
+        int data[20] ={};
+        
+        load(loader, data, 16);// loads them into array
 
         
 
-        load(loader, data[i], 16);// loads them into array
+        compute(data, 20);// calculates the fa
 
-        if(loader.eof() || data[i][0] == '\n'){// eof check
-            break;
-        }
+        dump(loader, dumper, data);//dumps them to ass9output.txt
 
-        compute(data[i], 20);// calculates the fa
-
-        dump(dumper, data[i], i);//dumps them to ass9output.txt
+      
     }
 
 
@@ -80,7 +79,7 @@ void load(ifstream &loader, int data[], int size){//loads data from file
     
 }
 
-void dump(ofstream &dumper, int  data[], int cnt){//dumps data to the desired file
+void dump(ifstream &loader, ofstream &dumper, int  data[]){//dumps data to the desired file
     string grade;
    if(dumper.is_open()){
        dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' ');// print id
@@ -105,10 +104,12 @@ void dump(ofstream &dumper, int  data[], int cnt){//dumps data to the desired fi
             dumper << " " << left << setw(3) << grade;// print grade
         }
 
-        if(cnt < 52){
-           dumper << endl; 
+        if(loader.eof() || data[0] == '\n'){// eof check
+            return;
         }
-        
+        else{
+          dumper << endl;
+        }
    }
 
    else{
