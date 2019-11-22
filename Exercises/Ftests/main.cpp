@@ -26,7 +26,8 @@ int partition(int arr[],int lo, int hi){
         }
     }
 
-            tmp = arr[i+1];
+tmp = arr[i + 1];
+
             arr[i+1] = arr[hi];
             arr[hi] = tmp;
 
