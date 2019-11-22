@@ -25,7 +25,7 @@ int total(int numbers[], int start, int end);// total of array's section
 int percentage(int total);//percentage
 int grader(string data, int percentage);//grader
 void compute(int  data[], int size);//compute data in a array
-void dump(ifstream &loader, ofstream &dumper, int  data[]);// dumps into a file 
+void dump(ifstream &loader, ofstream &dumper, int  data[]);// dumps into a file && checks for loader's eof at the end 
 int min(int numbers[], int start, int end);// finds the smallest element of the arr
 int pm(int percentage);// determine the suffix
 
@@ -76,31 +76,8 @@ void dump(ofstream & dumper, int data[], int cnt) { //dumps data to the desired 
       grade += static_cast < char > (data[19]); // add suffix
       dumper << " " << left << setw(3) << grade; // print grade
     }
+  }
 
-void dump(ifstream &loader, ofstream &dumper, int  data[]){//dumps data to the desired file
-    string grade;
-   if(dumper.is_open()){
-       dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' ');// print id
-
-       for(int i = 1; i < 15; i++){
-            if( i < 12)
-            dumper << " "<< setw(2) << data[i];// print assignment scores
-            else 
-            dumper << "  " << setw(3) << data[i];// print assignment total and midterms, finals, lab ex 
-            
-        }
-
-        dumper << " " << setw(3) << data[15] << " " << setw(5) << data[16] << "  " << setw(3) << data[17];
-        //print total and percentage
-        grade += static_cast<char>(data[18]);// set grade
-
-        if(static_cast<char>(data[19]) == ' '){
-           dumper << " " << left << setw(3) << static_cast<char>(data[18]);
-        }
-        else{
-            grade += static_cast<char>(data[19]);// add suffix
-            dumper << " " << left << setw(3) << grade;// print grade
-        }
 
         if(loader.eof() || data[0] == '\n'){// eof check
             return;
@@ -110,17 +87,16 @@ void dump(ifstream &loader, ofstream &dumper, int  data[]){//dumps data to the d
         }
    }
 
-   else{
-        cerr << "file open failure!!";
-        exit(1);
-    }
+   
 
-  } else {
+   else {
     cerr << "file open failure!!";
     exit(1);
+    }
+
   }
 
-}
+
 
 int total(int numbers[], int start, int end) { // calculates total from start index to end index
   int sum = 0;
@@ -140,27 +116,27 @@ int grader(int percentage) { // grader from Assignment #4
   char grade;
 
   switch (percentage / 10) {
-  case 10:
-    grade = 'A';
-    break;
-  case 9:
-    grade = 'A';
-    break;
+    case 10:
+      grade = 'A';
+      break;
+    case 9:
+      grade = 'A';
+      break;
 
-  case 8:
-    grade = 'B';
-    break;
+    case 8:
+      grade = 'B';
+      break;
 
-  case 7:
-    grade = 'C';
-    break;
+    case 7:
+      grade = 'C';
+      break;
 
-  case 6:
-    grade = 'D';
-    break;
+    case 6:
+      grade = 'D';
+      break;
 
-  default:
-    grade = 'F';
+    default:
+      grade = 'F';
   }
 
   return grade;
