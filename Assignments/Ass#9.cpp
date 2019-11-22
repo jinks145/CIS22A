@@ -20,7 +20,7 @@ Name: Brad
 using namespace std;
 
 const int MAX = 400;// max points
-void load(ifstream &loader, int data[], int size);// loads a student record
+void load(ifstream &loader, int data[], const int size);// loads a student record
 int total(int numbers[], int start, int end);// total of array's section
 int percentage(int total);//percentage
 int grader(string data, int percentage);//grader
@@ -53,7 +53,35 @@ int main(){
 
 }
 
-void dump(ifstream &loader, ofstream & dumper, int data[], int cnt) { //dumps data to the desired file
+void load(ifstream &loader, int data[], const int size){//loads data from file
+    
+    if(loader.is_open()){
+
+    for(int i = 0; i < 12; i++){// from id to 11 assignments
+            
+            loader >> data[i];
+         
+        }
+
+    for(int i = 13; i < size; i++){
+        loader >> data[i];// load array with data in the order of midterm, finals, lab exercise
+        }
+
+    data[12] = 0;//set assignment total to 0
+    data[16] = 0;//set total to 0;
+    
+    }
+
+    else{
+        cerr << "file open failure!!";
+        exit(1);
+    }
+    
+    
+}
+
+
+void dump(ifstream &loader, ofstream & dumper, int data[]) { //dumps data to the desired file
   string grade;
   if (dumper.is_open()) {
     dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' '); // print id
