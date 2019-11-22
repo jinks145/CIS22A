@@ -53,7 +53,7 @@ int main(){
 
 }
 
-void dump(ofstream & dumper, int data[], int cnt) { //dumps data to the desired file
+void dump(ifstream &loader, ofstream & dumper, int data[], int cnt) { //dumps data to the desired file
   string grade;
   if (dumper.is_open()) {
     dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' '); // print id
@@ -76,7 +76,7 @@ void dump(ofstream & dumper, int data[], int cnt) { //dumps data to the desired 
       grade += static_cast < char > (data[19]); // add suffix
       dumper << " " << left << setw(3) << grade; // print grade
     }
-  }
+  
 
 
         if(loader.eof() || data[0] == '\n'){// eof check
@@ -85,10 +85,10 @@ void dump(ofstream & dumper, int data[], int cnt) { //dumps data to the desired 
         else{
           dumper << endl;
         }
-   }
-
    
 
+   
+  }
    else {
     cerr << "file open failure!!";
     exit(1);
