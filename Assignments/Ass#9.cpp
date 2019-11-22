@@ -23,7 +23,7 @@ const int MAX = 400;// max points
 void load(ifstream &loader, int data[], const int size);// loads a student record
 int total(int numbers[], int start, int end);// total of array's section
 int percentage(int total);//percentage
-int grader(string data, int percentage);//grader
+int grader(int percentage);//grader
 void compute(int  data[], int size);//compute data in a array
 void dump(ifstream &loader, ofstream &dumper, int  data[]);// dumps into a file && checks for loader's eof at the end 
 int min(int numbers[], int start, int end);// finds the smallest element of the arr
@@ -96,15 +96,7 @@ void dump(ifstream &loader, ofstream & dumper, int data[]) { //dumps data to the
 
     dumper << " " << setw(3) << data[15] << " " << setw(5) << data[16] << "  " << setw(3) << data[17];
     //print total and percentage
-    grade += static_cast < char > (data[18]); // set grade
-
-    if (static_cast < char > (data[19]) == ' ') {
-      dumper << " " << left << setw(3) << static_cast < char > (data[18]);
-    } else {
-      grade += static_cast < char > (data[19]); // add suffix
-      dumper << " " << left << setw(3) << grade; // print grade
-    }
-  
+    dumper << ' ' << static_cast < char > (data[18]) << static_cast < char > (data[19]); // set grade
 
 
         if(loader.eof() || data[0] == '\n'){// eof check
@@ -141,33 +133,23 @@ int percentage(int total) { // calculates percentage
 }
 
 int grader(int percentage) { // grader from Assignment #4
-  char grade;
+  char grade[] = {'A' , 'B', 'C', 'D', 'F'};
+  int index;
+  
+  if(percentage / 10 >= 9){
+      index = 0;
+  }
+  else if(percentage /10 > 5){
 
-  switch (percentage / 10) {
-    case 10:
-      grade = 'A';
-      break;
-    case 9:
-      grade = 'A';
-      break;
-
-    case 8:
-      grade = 'B';
-      break;
-
-    case 7:
-      grade = 'C';
-      break;
-
-    case 6:
-      grade = 'D';
-      break;
-
-    default:
-      grade = 'F';
+      index = 10 - percentage /10 - 1;
+      
+  }
+  else {
+    index = 4;
   }
 
-  return grade;
+
+  return grade[index];
 }
 
 int pm(int percentage) {
