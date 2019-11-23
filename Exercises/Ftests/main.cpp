@@ -12,66 +12,34 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 using namespace std;
 
-int partition(int arr[],int lo, int hi){
-    int pivot = arr[hi];
-    int tmp;
-    int i = lo - 1;
+char grader(int percentage) { // grader from Assignment #4
+  char grade[] = {'A' , 'B', 'C', 'D', 'F'};
+  int index;
+  
+  if(percentage / 10 >= 9){
+      index = 0;
+  }
+  else if(percentage /10 > 5){
 
-    for(int j = lo; j <= hi - 1; j++){
-        if(arr[j] < pivot){
-            i++;
-            tmp = arr[j];
-            arr[i] = arr[j];
-            arr[j] = tmp;
-        }
-    }
-
-tmp = arr[i + 1];
-
-            arr[i+1] = arr[hi];
-            arr[hi] = tmp;
-
-    return i+1;
-}
-
-void qsort(int arr[], int lo, int hi){
-   
-   if(lo < hi){
-        int pi = partition(arr, lo, hi);
-
-        qsort(arr, lo, pi - 1);
-       
-        qsort(arr, pi + 1, hi);
-   }
-
-}
+      index = 10 - percentage /10 - 1;
+      
+  }
+  else {
+    index = 4;
+  }
 
 
-bool isPrime(int n){
-    for(int i = 2; i < n ; i++){
-        if(n % i == 0){
-            return false;
-        }
-    }
-    return true;
-
-}
-
-int findPrime(int num){
-    
-    int half = num /2;
-
-    for(int i = half ; i > 1; i--){
-        if(isPrime(i)){
-            return i;
-        }
-    }
-    return 0;
+  return grade[index];
 }
 
 int main(){
-    cout << "for 13: "<< boolalpha << (findPrime(13) == 5) << endl;
-    cout << "for 25: "<< boolalpha <<  (findPrime(25) == 11) << endl;
-    cout << "for 55: "<< boolalpha <<  (findPrime(55) == 23) << endl;
+    
+        cout << static_cast<char>(grader(58)) << endl;
+        cout << static_cast<char>(grader(64)) << endl;
+        cout << static_cast<char>(grader(75)) << endl;
+        cout << static_cast<char>(grader(85)) << endl;
+        cout << static_cast<char>(grader(95)) << endl;
+        cout << static_cast<char>(grader(100)) << endl;
+    
 }
 
