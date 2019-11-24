@@ -25,7 +25,7 @@ int total(int numbers[], int start, int end);// total of array's section
 int percentage(int total);//percentage
 int grader(int percentage);//grader
 void compute(int  data[], int size);//compute data in a array
-void dump(ifstream &loader, ofstream &dumper, int  data[]);// dumps into a file && checks for loader's eof at the end 
+void dump(ifstream &loader, ofstream &dumper, int  data[], bool &first);// dumps into a file && checks for loader's eof at the end 
 int min(int numbers[], int start, int end);// finds the smallest element of the arr
 int pm(int percentage);// determine the suffix
 
@@ -33,29 +33,34 @@ int pm(int percentage);// determine the suffix
 int main(){
     ifstream loader("ass7data.txt");
     ofstream dumper("ass9output.txt");
-    
+    bool first = true;
+    int data[20] ={};
     
     dumper << "Student   -----   Assignment Grades  -----  Ass  Mid  Fin LEx Total  Pct Gr\n";// headings
     dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --\n";
     while(!loader.eof()){//one student record at a time
-        int data[20] ={};
         
+       
+
         load(loader, data, 16);// loads them into array
 
-        
+         if(loader.eof()){// eof check
+            break;
+        }
 
         compute(data, 20);// calculates the fa
 
-        dump(loader, dumper, data);//dumps them to ass9output.txt
-
-      
+        dump(loader, dumper, data, first);//dumps them to ass9output.txt   
     }
-
+    
+    loader.close();
+    dumper.close();
 }
 
 void load(ifstream &loader, int data[], const int size){//loads data from file
     
     if(loader.is_open()){
+        
 
     for(int i = 0; i < 12; i++){// from id to 11 assignments
             
@@ -81,9 +86,14 @@ void load(ifstream &loader, int data[], const int size){//loads data from file
 }
 
 
-void dump(ifstream &loader, ofstream & dumper, int data[]) { //dumps data to the desired file
+void dump(ifstream &loader, ofstream & dumper, int data[], bool &first) { //dumps data to the desired file
   string grade;
   if (dumper.is_open()) {
+    if(!first) dumper << endl;
+    else{
+      first = false;
+    }
+
     dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' '); // print id
 
     for (int i = 1; i < 15; i++) {
@@ -99,13 +109,9 @@ void dump(ifstream &loader, ofstream & dumper, int data[]) { //dumps data to the
     dumper << ' ' << static_cast < char > (data[18]) << static_cast < char > (data[19]); // set grade
 
 
-        if(loader.eof() || data[0] == '\n'){// eof check
-            return;
-        }
-        else{
-          dumper << endl;
-        }
-   
+      
+
+      
 
    
   }
