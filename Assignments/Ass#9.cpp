@@ -40,33 +40,50 @@ int main(){
     dumper << "--------  -- -- -- -- -- -- -- -- -- -- --  ---  ---  --- --- -----  --- --\n";
     while(!loader.eof()){//one student record at a time
         
+             
        
 
         load(loader, data, 16);// loads them into array
 
-         if(loader.eof()){// eof check
-            break;
-        }
+        if(!loader.is_open()){
+            dumper.close();
+            return 0;
+        }   
 
-        compute(data, 20);// calculates the fa
+
+        compute(data, 20);// calculates the student records
+        
+        
 
         dump(loader, dumper, data, first);//dumps them to ass9output.txt   
+        
+        
     }
     
-    loader.close();
-    dumper.close();
+    
+    
 }
 
 void load(ifstream &loader, int data[], const int size){//loads data from file
     
     if(loader.is_open()){
+
+       
         
 
     for(int i = 0; i < 12; i++){// from id to 11 assignments
             
+          if(loader.eof()){
+          loader.ignore();
+          loader.close();
+          return;
+          }
+
             loader >> data[i];
          
         }
+
+
 
     for(int i = 13; i < size; i++){
         loader >> data[i];// load array with data in the order of midterm, finals, lab exercise
@@ -75,6 +92,8 @@ void load(ifstream &loader, int data[], const int size){//loads data from file
     data[12] = 0;//set assignment total to 0
     data[16] = 0;//set total to 0;
     
+     
+
     }
 
     else{
@@ -89,10 +108,15 @@ void load(ifstream &loader, int data[], const int size){//loads data from file
 void dump(ifstream &loader, ofstream & dumper, int data[], bool &first) { //dumps data to the desired file
   string grade;
   if (dumper.is_open()) {
+
+     
+
     if(!first) dumper << endl;
     else{
       first = false;
     }
+
+    
 
     dumper << right << setw(8) << setfill('0') << data[0] << " " << setfill(' '); // print id
 
@@ -108,8 +132,9 @@ void dump(ifstream &loader, ofstream & dumper, int data[], bool &first) { //dump
     //print total and percentage
     dumper << ' ' << static_cast < char > (data[18]) << static_cast < char > (data[19]); // set grade
 
+   
 
-      
+    
 
       
 

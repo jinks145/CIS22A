@@ -78,6 +78,14 @@ int main() {
     } else {
       for (int i = 1000; i > -1; i--) {
         load(ifile, & data[i]);
+        if(!ifile.is_open()){
+          ofile.close();
+          break;
+        }
+      }
+
+      if(!ofile.is_open()){
+        break;
       }
 
       for (int i = 0; i < 8; i++) {
@@ -87,8 +95,6 @@ int main() {
       dump(ofile, data[0], result, 8, toUpperStr(ticker));
 
     }
-    ifile.close();
-    ofile.close();
 
     cout << "finished analyzing" << endl;
 
@@ -109,6 +115,12 @@ void load(ifstream & ifile, data * d) {
   string line, data[7]; //line for 
 
   if (ifile.is_open()) {
+    if(ifile.eof()){
+          ifile.ignore();
+          ifile.close();
+          return;
+      }
+
     getline(ifile, line);
 
     if (line == "Date,Open,High,Low,Close,Adj Close,Volume" || ifile.eof()) return; // omits the line
